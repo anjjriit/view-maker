@@ -11,7 +11,7 @@ ViewMaker is for use with the Laravel PHP framework (5.2 and up). It's a plugin 
 
 If you had a model named Widget, and you had a REST controller, you would want correspoing views
 for the controller methods.
-You simply input a model name, master page name and template type (plain, basic, or dt), and the 
+You simply input a model name, master page name and template type (plain, basic, or dt), and 
 the view folder and the views are made for you instantly.
 
 ## Install
