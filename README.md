@@ -32,7 +32,7 @@ Evercode1\ViewMaker\ViewMakerServiceProvider::class,
 
 ## Summary
 
-ViewMaker creates an artisan command that lets you quickly scaffold views for create, 
+ViewMaker will install an artisan command that lets you quickly scaffold views for create, 
 show, edit, and index, based on your input.
 
 The make:views command has  the following arguments:
