@@ -1,4 +1,4 @@
-# ViewMaker
+# ViewMaker For Laravel 5.2
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
@@ -7,7 +7,7 @@
 
 ViewMaker creates an artisan command that lets you quickly scaffold views for create, show, edit, and index, based on your input.
 
-ViewMaker is for use with the Laravel PHP framework. It's a plugin for the artisan command line tool that ships with Laravel.
+ViewMaker is for use with the Laravel PHP framework (5.2 and up). It's a plugin for the artisan command line tool that ships with Laravel.
 
 If you had a model named Widget, and you had a REST controller, you would want correspoing views
 for the controller methods.
