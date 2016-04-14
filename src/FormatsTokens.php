@@ -27,6 +27,9 @@ class FormatsTokens
         $masterPage = $this->masterPage;
         $modelName = $this->modelName;
         $folderName = $this->folderName;
+        $gridName = $this->modelName . '-grid';
+        $endGridName = '/' . $this->modelName . '-grid';
+        $vueApiRoute = 'api/' . $this->modelName . '-vue';
 
         //create token array using compact
 
@@ -39,7 +42,10 @@ class FormatsTokens
                           'tableName',
                           'masterPage',
                           'modelName',
-                          'folderName');
+                          'folderName',
+                          'gridName',
+                          'endGridName',
+                          'vueApiRoute');
 
         $content = $this->insertTokensInContent($content, $tokens);
 
