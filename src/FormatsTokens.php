@@ -11,7 +11,9 @@ class FormatsTokens
     public function __construct(array $tokens)
     {
 
+
         $this->setTokens($tokens);
+        $this->modelName = camel_case($this->modelName);
 
     }
 
@@ -19,11 +21,11 @@ class FormatsTokens
     {
         $upperCaseModelName = ucfirst($this->modelName);
         $field_name = snake_case($this->modelName) . '_name';
-        $modelId = $this->modelName . '->id';
-        $modelAttribute = $this->modelName . '->' . $field_name;
-        $createdAt = $this->modelName . '->created_at';
+        $modelId = $this->formatInstanceVariable() . '->id';
+        $modelAttribute = $this->formatInstanceVariable() . '->' . $field_name;
+        $createdAt = $this->formatInstanceVariable() . '->created_at';
         $modelRoute = '/' . $this->folderName;
-        $tableName = $this->modelName . '_table';
+        $dtTableName = snake_case($this->modelName) . '_table';
         $masterPage = $this->masterPage;
         $modelName = $this->modelName;
         $folderName = $this->folderName;
@@ -39,7 +41,7 @@ class FormatsTokens
                           'modelAttribute',
                           'createdAt',
                           'modelRoute',
-                          'tableName',
+                          'dtTableName',
                           'masterPage',
                           'modelName',
                           'folderName',
@@ -85,6 +87,12 @@ class FormatsTokens
         }
 
         return $content;
+    }
+
+    private function formatInstanceVariable()
+    {
+
+        return camel_case($this->modelName);
     }
 
 

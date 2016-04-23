@@ -21,6 +21,9 @@ class DatatableTemplates
         $content = <<<EOD
 
 @extends('layouts.:::masterPage:::')
+@section('css')
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
+@endsection
 
 @section('title')
 
@@ -56,7 +59,6 @@ class DatatableTemplates
     @include(':::folderName:::.datatable-script')
 
 @endsection
-
 EOD;
 
 
@@ -69,7 +71,7 @@ EOD;
 
         $content = <<<EOD
 
-    <table id=":::tableName:::" class="display">
+    <table id=":::dtTableName:::" class="display">
         <thead>
         <tr>
             <th>Id</th>
@@ -93,11 +95,11 @@ EOD;
     {
 
         $content = <<<EOD
-
+<script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
 <script>
     \$(document).ready( function () {
-        \$('#:::tableName:::').DataTable({
+        \$('#:::dtTableName:::').DataTable({
             select: false,
             "ajax": {
                 "url": "/api:::modelRoute:::",
@@ -130,8 +132,6 @@ EOD;
         });
     } );
 </script>
-
-
 EOD;
 
 
