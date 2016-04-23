@@ -304,7 +304,12 @@ a single record by running from the command line:
 vendor/bin/phpunit
 ```
 
-You should get green and a record in the db.
+You should get green and a record in the db. It's a very basic test and it should pass. 
+
+As I noted earlier, if you have a problem with your route group because of a version change in Laravel, 
+it will fail.  It can also fail if another test, like ExampleTest, is having a problem and crashes
+the program.  In that case fix or remove the broken tests, and make sure your route group is correct, 
+in some versions you need one, in some versions you don't, and that should solve the problem.
 
 Next you can use the factory to seed the db.  We start by calling tinker:
 
@@ -320,9 +325,16 @@ factory('App\Widget', 30)->create();
 
 Then control D from the command line to quit tinker.
 
+If you don't want to use tinker, manually add some records via the create form.
+
 With that you should be able to go to your /widget route and see the following:
 
 ![](dt-index.png)
+
+Please note that the header and footer pictured above are called in by the master page, so you will see
+the output of your masterpage instead.
+
+
 
 ## Plain Templates
 
