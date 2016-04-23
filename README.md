@@ -87,6 +87,11 @@ make:foundation also appends to the following files:
 
 Please note:
 
+If you use the make:crud or make:foundation command, you may have to place the route that it makes within a route group, 
+depending on your build of Laravel.  Some versions have it, some don't.  If you get an error about not being able 
+to find the errors variable, it is most likely related to the web route group.  The routes that make:crud and 
+make:foundation creates are appended to the bottom of your routes file.
+
 ViewMaker templates assume you use and have a master page.  If you want to take advantage of
 working grid templates, then you will need the following:
 
