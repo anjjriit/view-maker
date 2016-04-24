@@ -87,11 +87,6 @@ make:foundation also appends to the following files:
 
 Please note:
 
-If you use the make:crud or make:foundation command, you may have to place the route that it makes within a route group, 
-depending on your build of Laravel.  Some versions have it, some don't.  If you get an error about not being able 
-to find the errors variable, it is most likely related to the web route group.  The routes that make:crud and 
-make:foundation creates are appended to the bottom of your routes file.
-
 ViewMaker templates assume you use and have a master page.  If you want to take advantage of
 working grid templates, then you will need the following:
 
@@ -118,7 +113,8 @@ use ViewMaker successfully.
 
 To fully understand the power of the make:foundation command, let's walk through a typcial use case.  For this,
 we will assume that you have a master page named master.blade.php in your layouts folder, which is in your views folder.  
-In your masterpage, you will have your csfr token:
+
+Before we start, in your masterpage, you should have your csfr token:
 
 ```
 <meta name="csrf-token" content="{!! csrf_token() !!}">
@@ -130,11 +126,14 @@ Your masterpage should also have your css tag;
 @yield('css')
 ```
 
-and in the scripts section of your masterpage, your call to jquery, for example:
+and in the scripts section of your masterpage, you should have your call to jquery, for example:
 
 ```
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 ```
+
+You need to make sure that is all there before running the command, otherwise
+the views containing ajax and grids will not function properly.
 
 Now we're ready to try the make:foundation command.  Let's create a Widget 
 foundation with the following command:
@@ -143,7 +142,7 @@ foundation with the following command:
 php artisan make:foundation Widget master dt
 ```
 
-To keep it simple, let's just migrate what we have:
+After that runs, we're ready to migrate up to our db.  To keep it simple, let's just migrate what we have:
 
 ```
 php artisan migrate
