@@ -9,7 +9,7 @@ tool that ships with Laravel.  ViewMaker provides a suite of commands that help 
 a crud application from scratch in very little time.
 
 ViewMaker's commands give you a lot of flexibility because you can use it to create the parts you
-need separately or all at once through our make:foundation command.  It will opimize your workflow.
+need separately or all at once through our [make:foundation artisan command](#makefoundation).  It will opimize your workflow.
 
 VeiwMaker's [make:foundation artisan command](#makefoundation) puts it all together for you.  It creates a model from 
 scratch with corresponding migration, routes, controllers and views, forming a basic crud app, with searchable, 
