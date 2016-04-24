@@ -160,7 +160,7 @@ You should get green and a record in the db. It's a very basic test and it shoul
 If your test fails:
 
 Some versions of Laravel 5.2 require your routes to be in a web group.  Since 
-the new routes we made are just appened to the end of the file, you may need
+the new routes we made are just appended to the end of the file, you may need
 to move them inside a route group, depending on your version of Laravel.
 
 The test can also fail if another test, like ExampleTest, is having a problem and crashes
