@@ -157,8 +157,13 @@ vendor/bin/phpunit
 
 You should get green and a record in the db. It's a very basic test and it should pass. 
 
-As I noted earlier, if you have a problem with your route group because of a version change in Laravel, 
-it will fail.  It can also fail if another test, like ExampleTest, is having a problem and crashes
+If your test fails:
+
+Some versions of Laravel 5.2 require your routes to be in a web group.  Since 
+the new routes we made are just appened to the end of the file, you may need
+to move them inside a route group, depending on your version of Laravel.
+
+The test can also fail if another test, like ExampleTest, is having a problem and crashes
 the program.  In that case fix or remove the broken tests, and make sure your route group is correct, 
 in some versions you need one, in some versions you don't, and that should solve the problem.
 
