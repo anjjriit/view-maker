@@ -9,22 +9,22 @@ tool that ships with Laravel.  ViewMaker provides a suite of commands that help 
 a crud application from scratch in very little time.
 
 ViewMaker's commands give you a lot of flexibility because you can use it to create the parts you
-need separately or all at once through our [make:foundation artisan command](#makefoundation).  It will opimize your workflow.
+need separately or all at once through our [make:foundation](#makefoundation) artisan command.  It will opimize your workflow.
 
-VeiwMaker's [make:foundation artisan command](#makefoundation) puts it all together for you.  It creates a model from 
+VeiwMaker's [make:foundation](#makefoundation) artisan command puts it all together for you.  It creates a model from 
 scratch with corresponding migration, routes, controllers and views, forming a basic crud app, with searchable, 
 sortable columns.  It also builds a basic unit test and sets up your factory for quick population of seed data.
 
-If you just want to create views quickly, ViewMaker creates a [make:views artisan command](#makeviews) that lets you scaffold views for create, show, edit, and index, 
+If you just want to create views quickly, ViewMaker creates a [make:views](#makeviews) artisan command that lets you scaffold views for create, show, edit, and index, 
 based on your input.  You simply input a model name, master page name and template type (plain, basic, dt, or vue), 
 and the view folder and corresponding views are made for you instantly.  Our dt and vue templates come with working
 js datagrids out of the box. 
  
-ViewMaker also creates a [make:master artisan command](#makemaster) that creates a layouts folder and builds a master page,
+ViewMaker also creates a [make:master](#makemaster) artisan command that creates a layouts folder and builds a master page,
 with the individual parts separated out into view partials.  It comes with a minimal bootstrap implementation
 and all of the required dependecies.
 
-ViewMaker also ships with a [make:crud artisan command](#makecrud), which creates the model, migration, routes, controllers, factory, and test
+ViewMaker also ships with a [make:crud](#makecrud) artisan command, which creates the model, migration, routes, controllers, factory, and test
 without the views, in case you want to create those separately.
 
 With these commands, you can stand a project up quickly.  For example, you could use [make:master](#makemaster) to 
