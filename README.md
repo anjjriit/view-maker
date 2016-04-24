@@ -11,7 +11,11 @@ a crud application from scratch in very little time.
 ViewMaker's commands give you a lot of flexibility because you can use it to create the parts you
 need separately or all at once through our make:foundation command.  It will opimize your workflow.
 
-ViewMaker creates a [make:views artisan command](#make:views) that lets you quickly scaffold views for create, show, edit, and index, 
+VeiwMaker's [make:foundation artisan command](#make:foundation) puts it all together for you.  It creates a model from 
+scratch with corresponding migration, routes, controllers and views, forming a basic crud app, with searchable, 
+sortable columns.  It also builds a basic unit test and sets up your factory for quick population of seed data.
+
+If you just want to creaewt views quickly, ViewMaker creates a [make:views artisan command](#make:views) that lets you scaffold views for create, show, edit, and index, 
 based on your input.  You simply input a model name, master page name and template type (plain, basic, dt, or vue), 
 and the view folder and corresponding views are made for you instantly.  Our dt and vue templates come with working
 js datagrids out of the box. 
@@ -19,10 +23,6 @@ js datagrids out of the box.
 ViewMaker also creates a [make:master artisan command](#make:master) that creates a layouts folder and builds a master page,
 with the individual parts separated out into view partials.  It comes with a minimal bootstrap implementation
 and all of the required dependecies.
-
-VeiwMaker also has a powerful [make:foundation artisan command](#make:foundation) that puts it all together for you.  It creates a model from 
-scratch with corresponding migration, routes, controllers and views, forming a basic crud app, with searchable, 
-sortable columns.  It also builds a basic unit test and sets up your factory for quick population of seed data.
 
 ViewMaker also ships with a [make:crud artisan command](#make:crud), which creates the model, migration, routes, controllers, factory, and test
 without the views, in case you want to create those separately.
@@ -36,7 +36,7 @@ to support my work and learn more about Laravel, you can do so by buying one of
 my books, [Laraboot: laravel 5.2 For Beginners](https://leanpub.com/laravel-5-for-beginners-laraboot), 
 I really appreciate it.
 
-## Install
+## Install ##
 
 Via Composer
 
