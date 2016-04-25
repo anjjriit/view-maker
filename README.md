@@ -5,8 +5,7 @@
 [![Total Downloads][ico-downloads]][link-downloads]
 
 **ViewMaker** is for use with the Laravel PHP framework (5.2 and up). It's a plugin for the artisan command line 
-tool that ships with Laravel.  It provides a suite of commands that help you quickly stand up
-a crud application from scratch in very little time, with views that feature a working data grid.
+tool that ships with Laravel, designed to optimize your work flow.
 
 **ViewMaker** does more than just create views.  The **[make:foundation](#makefoundation)** artisan command builds a foundation for you by creating a model from 
 scratch with corresponding migration, routes, api, controllers and views, forming a basic crud app, with searchable, 
