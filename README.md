@@ -5,34 +5,34 @@
 [![Total Downloads][ico-downloads]][link-downloads]
 
 **ViewMaker** is for use with the Laravel PHP framework (5.2 and up). It's a plugin for the artisan command line 
-tool that ships with Laravel, designed to optimize your work flow.
+tool that ships with Laravel, providing ready-made templates, designed to optimize your work flow.
 
-**ViewMaker** does more than just create views.  The **[make:foundation](#makefoundation)** artisan command builds a foundation for you by creating a model from 
+**ViewMaker** does more than just create views.  The **[make:foundation](#makefoundation)** command builds a foundation for you by creating a model from 
 scratch with corresponding migration, routes, api, controllers and views, forming a basic crud app, with searchable, 
 sortable columns.  It also builds a basic unit test and sets up your factory for quick population of seed data.
 
-If you just want to create views quickly, the **[make:views](#makeviews)** artisan command that lets you scaffold views for create, show, edit, and index, 
+If you just want to create views quickly, the **[make:views](#makeviews)** command that lets you scaffold views for create, show, edit, and index, 
 based on your input.  You simply input a model name, master page name and template type (plain, basic, dt, or vue), 
 and the view folder and corresponding views are made for you instantly.  Our dt and vue templates come with working
 js datagrids out of the box.  Check out our [template types](#template-types) section for details on the tempaltes.
  
-**ViewMaker** also creates a **[make:master](#makemaster)** artisan command that creates a layouts folder and builds a master page,
+**ViewMaker** also creates a **[make:master](#makemaster)** command that creates a layouts folder and builds a master page,
 with the individual parts separated out into view partials.  It comes with a minimal bootstrap implementation
 and all of the required dependecies.  This makes working with our other commands, like **[make:views](#makeviews)** and 
 **[make:foundation](#makefoundation)**, even more simple, because the dependencies and configuration
 are done for you.  
 
-This package also ships with a **[make:crud](#makecrud)** artisan command, which creates the model, migration, routes, controllers, factory, and test
+This package also ships with a **[make:crud](#makecrud)** command, which creates the model, migration, routes, controllers, factory, and test
 without the views, in case you want to create those separately.
 
 With these commands, you can stand a project up quickly.  For example, you could use **[make:master](#makemaster)** to 
 create your master page, and then use **[make:foundation](#makefoundation)** to stand up all the crud and views that you 
 need to have an instant crud app in less than a minute.
 
-I hope you enjoy this plugin and find it useful.  I don’t have a donate button, but If you would like 
-to support my work and learn more about Laravel, you can do so by buying one of 
-my books, **[Laraboot: laravel 5.2 For Beginners](https://leanpub.com/laravel-5-for-beginners-laraboot)**, 
-I really appreciate it.
+The commands are incredibly easy to use, nevertheless, I have included very thorough documentaion and a work-flow tutorial, so
+that programmers of all levels can use this tool.  I hope you enjoy this plugin and find it useful.  I don’t have a donate button, 
+but If you would like to support my work and learn more about Laravel, you can do so by buying one of my books, 
+**[Laraboot: laravel 5.2 For Beginners](https://leanpub.com/laravel-5-for-beginners-laraboot)**, I really appreciate it.
 
 ## Install ##
 
@@ -334,7 +334,7 @@ running [make:master](#makemaster), run the make:auth command.  Then all you hav
 in those view files to @extends('layouts.whatever-your-master-page-is-named').
 
 Please note that the make:auth command also creates a controller that returns the user to a specific page for logging in and 
-registering, so you will have to modify that one as well if you want the master page extended there as well.
+registering, so you will have to modify that view as well if you want your generated master page extended there as well.
 
 ## make:crud
 
@@ -749,7 +749,8 @@ are just starting with Vue, it will give you some idea of how it works.
 ## Conventions
 
 It's worth reviewing the conventions to see how it all works.  If you are using our **[make:foundation](#makefoundation)** or 
-**[make:crud](#makecrud)** command, these are the conventions it follows, and all the work is done for you.
+**[make:crud](#makecrud)** command to create your routes, models, controllers, etc, these are the conventions they follow, but all the work is done for you, so you don't have to 
+worry about missing something.
 
 If you are making your own models, routes, controllers, etc., it's important to reference things
 correctly or the views will not work.
