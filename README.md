@@ -81,7 +81,7 @@ Use **[make:crud](#makecrud)** to create the files necessary to display a view:
 * migration
 * test
 
-**[make:crud](#makecrud)** also appends to the following files:
+The **[make:crud](#makecrud)** command also appends to the following files:
 
 * routes.php
 * ModelFactory.php
@@ -100,7 +100,7 @@ Use **[make:foundation](#makefoundation)** to create all files for crud and view
 * edit view
 * show view
 
-**[make:foundation](#makefoundation)** also appends to the following files:
+The **[make:foundation](#makefoundation)** command also appends to the following files:
 
 * routes.php
 * ModelFactory.php
@@ -153,19 +153,19 @@ This would include the dependencies you need for ajax calls and a working data g
 
 You can use your own master page, but before we start, let's double check to make sure we have what we need: 
 
-In your masterpage, you should have your csfr token:
+In your masterpage or related partial, you should have your csfr token:
 
 ```
 <meta name="csrf-token" content="{!! csrf_token() !!}">
 ```
 
-Your masterpage should also have your css tag;
+Your masterpage or related partial should also have your css tag;
 
 ```
 @yield('css')
 ```
 
-and in the scripts section of your masterpage, you should have your call to jquery, for example:
+and in the scripts section of your masterpage or related partial, you should have your call to jquery, for example:
 
 ```
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -236,7 +236,7 @@ a working crud application.  You can then easily modify it to add the fields you
 place to support what you need, including all the basics like the model, migration, route and controller, as well 
 as a unit test, api controller, and factory method for seeding.  The **[make:foundation](#makefoundation)** command provides you with a complete foundation to start from.
 
-Also see the [tip for using make:auth](#tip-for-using-makeauth) to see how you can use artisan's native make:auth command to set
+Also see the [tip for use with make:auth](#tip-for-use-with-makeauth) to see how you can use artisan's native make:auth command to set
 up all your auth views to extend the master page you have created with [make:master](#makemaster).
 
 ## make:views
@@ -255,7 +255,7 @@ you could use **[make:foundation](#makefoundation)** to create everything all at
 you do not need to run make:views, since the views will be included in the foundation.
 
 We recommend using our **[make:master](#makemaster)** command to make your master page.  In any event before you 
-run make:views, you need to have your master page ready.  
+run make:views, you need to have your master page ready. Also see [requirements for views](#requirements-for-views). 
 
 So for example, if you had a model named Widget, and you  had a master page 
 named master.blade.php, you may do one of the following:
