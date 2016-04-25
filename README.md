@@ -8,32 +8,31 @@
 tool that ships with Laravel.  **ViewMaker** provides a suite of commands that help you quickly stand up
 a crud application from scratch in very little time, with views that feature a working data grid.
 
-**ViewMaker's** commands give you a lot of flexibility because you can use it to create the parts you
-need separately or all at once through our **[make:foundation](#makefoundation)** artisan command.  It will opimize your workflow.
-
-**ViewMaker's** **[make:foundation](#makefoundation)** artisan command puts it all together for you.  It creates a model from 
-scratch with corresponding migration, routes, controllers and views, forming a basic crud app, with searchable, 
+**ViewMaker** does more than just create views.  **ViewMaker's** **[make:foundation](#makefoundation)** artisan command builds a foundation for by creating a a model from 
+scratch with corresponding migration, routes, api, controllers and views, forming a basic crud app, with searchable, 
 sortable columns.  It also builds a basic unit test and sets up your factory for quick population of seed data.
 
-If you just want to create views quickly, ViewMaker creates a [make:views](#makeviews) artisan command that lets you scaffold views for create, show, edit, and index, 
+If you just want to create views quickly, **ViewMaker** creates a **[make:views](#makeviews)** artisan command that lets you scaffold views for create, show, edit, and index, 
 based on your input.  You simply input a model name, master page name and template type (plain, basic, dt, or vue), 
 and the view folder and corresponding views are made for you instantly.  Our dt and vue templates come with working
 js datagrids out of the box. 
  
-ViewMaker also creates a [make:master](#makemaster) artisan command that creates a layouts folder and builds a master page,
+**ViewMaker** also creates a **[make:master](#makemaster)** artisan command that creates a layouts folder and builds a master page,
 with the individual parts separated out into view partials.  It comes with a minimal bootstrap implementation
-and all of the required dependecies.
+and all of the required dependecies.  This makes working with our other commands, like **[make:views](#makeviews)** and 
+**[make:foundation](#makefoundation)**, even more simple, because the dependencies and configuration
+are done for you.  
 
-ViewMaker also ships with a [make:crud](#makecrud) artisan command, which creates the model, migration, routes, controllers, factory, and test
+**ViewMaker** also ships with a **[make:crud](#makecrud)** artisan command, which creates the model, migration, routes, controllers, factory, and test
 without the views, in case you want to create those separately.
 
-With these commands, you can stand a project up quickly.  For example, you could use [make:master](#makemaster) to 
-create your master page, and then use [make:foundation](#makefoundation) to stand up all the crud and views that you 
+With these commands, you can stand a project up quickly.  For example, you could use **[make:master](#makemaster)** to 
+create your master page, and then use **[make:foundation](#makefoundation)** to stand up all the crud and views that you 
 need to have an instant crud app in less than a minute.
 
-I hope you enjoy this plugin and find it useful.  I don’t have a donate button, but If you would like 
+I hope you enjoy **ViewMaker** and find it useful.  I don’t have a donate button, but If you would like 
 to support my work and learn more about Laravel, you can do so by buying one of 
-my books, [Laraboot: laravel 5.2 For Beginners](https://leanpub.com/laravel-5-for-beginners-laraboot), 
+my books, **[Laraboot: laravel 5.2 For Beginners](https://leanpub.com/laravel-5-for-beginners-laraboot)**, 
 I really appreciate it.
 
 ## Install ##
@@ -54,9 +53,9 @@ Evercode1\ViewMaker\ViewMakerServiceProvider::class,
 
 ## Summary
 
-ViewMaker will install 4 artisan commands, [make:views](#makeviews), [make:master](#makemaster), [make:crud](#makecrud), and [make:foundation](#makefoundation).
+ViewMaker will install 4 artisan commands, **[make:views](#makeviews)**, **[make:master](#makemaster)**, **[make:crud](#makecrud)**, and **[make:foundation](#makefoundation)**.
 
-Use [make:views](#makeviews) to create views, including:
+Use **[make:views](#makeviews)** to create views, including:
 
 * appropriately-named view folder
 * index 
@@ -64,7 +63,7 @@ Use [make:views](#makeviews) to create views, including:
 * edit
 * show 
  
- Use [make:master](#makemaster) to create a master page, which includes:
+ Use **[make:master](#makemaster)** to create a master page, which includes:
  
  * layouts folder
  * master (you give it your name) 
@@ -75,7 +74,7 @@ Use [make:views](#makeviews) to create views, including:
  * nav partial
  * shim partial
 
-Use [make:crud](#makecrud) to create the files necessary to display a view:
+Use **[make:crud](#makecrud)** to create the files necessary to display a view:
 
 * model
 * controller
@@ -83,13 +82,13 @@ Use [make:crud](#makecrud) to create the files necessary to display a view:
 * migration
 * test
 
-make:crud also appends to the following files:
+**[make:crud](#makecrud)** also appends to the following files:
 
 * routes.php
 * ModelFactory.php
 * ApiController (if it already exists)
 
-Use [make:foundation](#makefoundation) to create all files for crud and views, including:
+Use **[make:foundation](#makefoundation)** to create all files for crud and views, including:
 
 * model
 * controller
@@ -102,7 +101,7 @@ Use [make:foundation](#makefoundation) to create all files for crud and views, i
 * edit view
 * show view
 
-[make:foundation](#makefoundation) also appends to the following files:
+**[make:foundation](#makefoundation)** also appends to the following files:
 
 * routes.php
 * ModelFactory.php
@@ -110,11 +109,11 @@ Use [make:foundation](#makefoundation) to create all files for crud and views, i
 
 Please note:
 
-ViewMaker templates assume you use and have a master page. If you don't already have a 
-master page, we recommend using our [make:master](#makemaster) command, it will include the things you 
+**ViewMaker** templates assume you use and have a master page. If you don't already have a 
+master page, we recommend using our **[make:master](#makemaster)** command, it will include the things you 
 need for working ajax calls.
 
-If you don't use our make:master to create your master page, then you need to make sure you
+If you don't use our **[make:master](#makemaster)** to create your master page, then you need to make sure you
 have the following:
 
 * a master page in a folder named layouts in your views folder
@@ -129,20 +128,20 @@ example for csrf token:
 <meta name="csrf-token" content="{!! csrf_token() !!}">
 ```
 
-Our [make:foundation](#makefoundation) and [make:crud](#makecrud) creates everything you need to display views, but if you just
-want to use ViewMaker to create views, you will need to write your model, route, migration, and 
-controllers in order to be able to see the views created by ViewMaker in your application.
+Our **[make:foundation](#makefoundation)** and **[make:crud](#makecrud)** creates everything you need to display views, but if you just
+want to use **ViewMaker** to create views, you will need to write your model, route, migration, and 
+controllers in order to be able to see the views created by **ViewMaker** in your application.
 
 All of these requirements are listed in detail below, but since they are common sources of bugs,
 I have listed them up here.  You can use it as a check list to make sure you have what you need to
-use ViewMaker successfully.
+use **ViewMaker** successfully.
 
 ## make:foundation Workflow
 
-To fully understand the power of the [make:foundation](#makefoundation) command, let's walk through a typcial use case.  For this,
+To fully understand the power of the **[make:foundation](#makefoundation)** command, let's walk through a typcial use case.  For this,
 we will assume that you have a master page named master.blade.php in your layouts folder, which is in your views folder.
   
-If you don't already have a master page, then we recommend using our [make:master](#makemaster) command, it will supply
+If you don't already have a master page, then we recommend using our **[make:master](#makemaster)** command, it will supply
 you with everything you need to create a foundation.  Just give your master page a name and supply
 an optional name for your app, like so:
 
@@ -176,7 +175,7 @@ and in the scripts section of your masterpage, you should have your call to jque
 You need to make sure that is all there before running the command, otherwise
 the views containing ajax and grids will not function properly.
 
-Now we're ready to try the make:foundation command.  Let's create a Widget 
+Now we're ready to try the **[make:foundation](#makefoundation)** command.  Let's create a Widget 
 foundation with the following command:
 
 ```
@@ -231,7 +230,7 @@ With that you should be able to go to your /widget route and see the following:
 ![](dt-index.png)
 
 Please note that the header and footer pictured above are called in by the master page, so 
-if you did not use our [make:master](#makemaster) command, you will see the output of your masterpage instead.
+if you did not use our **[make:master](#makemaster)** command, you will see the output of your masterpage instead.
 
 ## make:views
 
@@ -244,11 +243,11 @@ php artisan make:views {ModelName} {MasterPageName} {TemplateType}
 ```
 
 Before running make:views, at a minimum, you should already have your model, route and controller created.
-As an alternative to doing that manually, you can use ViewMaker's [make:crud](#makecrud) to do it for you.  Or
-you could use [make:foundation](#makefoundation) to create everything all at once.  If you use [make:foundation](#makefoundation),
+As an alternative to doing that manually, you can use **ViewMaker's** **[make:crud](#makecrud)** to do it for you.  Or
+you could use **[make:foundation](#makefoundation)** to create everything all at once.  If you use **[make:foundation](#makefoundation)**,
 you do not need to run make:views, since the views will be included in the foundation.
 
-We recommend using our [make:master](#makemaster) command to make your master page.  In any event before you 
+We recommend using our **[make:master](#makemaster)** command to make your master page.  In any event before you 
 run make:views, you need to have your master page ready.  
 
 So for example, if you had a model named Widget, and you  had a master page 
@@ -277,13 +276,13 @@ The plain template creates simple stubs, the basic template gives you a
 couple of working forms and the dt and vue templates give you a working data 
 grid implementation with search and column sorts.  
 
-The templates are described in detail in subsequent sections.  Also see the [Rquirements For Views](#requirements-for-views)
+The templates are described in detail in subsequent sections.  Also see the **[Rquirements For Views](#requirements-for-views)**
 section to make sure you have what you need before running this.  And finally, check out the conventions
 section for naming tips on models and instance variables, so you know what to expect there.
 
 ## make:master
 
-ViewMaker's make:master command creates a layouts folder and places a master page and related files in it.
+**ViewMaker's** make:master command creates a layouts folder and places a master page and related files in it.
 
 You supply the command with two arguments, the name you want for your master page and the name of your
 application.  For example, if we wanted our master page to be called master and our app name was Demo:
@@ -305,10 +304,10 @@ This will create the following:
 
 The master page includes the partials and this makes the code very easy to work with.
 
-ViewMaker includes a minimal bootstrap implementation, which you can easily change to suit
+**ViewMaker** includes a minimal bootstrap implementation, which you can easily change to suit
 your tastes.
 
-Using ViewMaker's make:master also makes it easier to work with the other commands, such as [make:foundation](#makefoundation),
+Using **ViewMaker's** make:master also makes it easier to work with the other commands, such as **[make:foundation](#makefoundation)**,
 since it is setup for the dependencies that you need.
 
 ## make:crud
@@ -384,8 +383,8 @@ make:foundation also appends to the following files:
 
 ## Requirements For Views
 
-To use the make:views or make:foundation command successfully, you need to have a master page.
-We recommend using our [make:master](#makemaster) command, it will give you a nice starting point for your project.
+To use the **[make:views](#makeviews)** or **[make:foundation](#makefoundation)** command successfully, you need to have a master page.
+We recommend using our **[make:master](#makemaster)** command, it will give you a nice starting point for your project.
 
 If you decide to make the master page yourself, you will need the following:
 
@@ -479,11 +478,11 @@ change the value of the field name in all the appropriate spots.  Please see the
 conventions section for tips on how the templates are formatted.
 
 Note that that the header and footer in the sample above are brought in by extending 
-the master page, they will not be generated by the ViewMaker.  
+the master page, they will not be generated by the **ViewMaker**.  
 
 The action on the above form is set to POST  to /widget, with the appropriate token set 
 to avoid csrf.  That actual posting of the form depends on you having a model, route, 
-controller and db setup.  None of that is created for you by ViewMaker.  That said, 
+controller and db setup.  None of that is created for you by **ViewMaker**.  That said, 
 these templates are designed to work with a route resource, so if you had the following 
 in your routes file:
 
@@ -503,7 +502,7 @@ support the basic views at:
 Please note that is the code on github, not a live demo.
 
 Since the templates only provide for a single field, it is easy to add fields, modify 
-the html markup and css to suit your own tastes and needs.  Using the [make:views](#makeviews) command 
+the html markup and css to suit your own tastes and needs.  Using the **[make:views](#makeviews)** command 
 is a starting point that will get you up and running quickly.
 
 ## Datatables Templates
@@ -520,7 +519,7 @@ this:
 php artisan make:views widget master dt
 ```
 
-You can use our [make:crud](#makecrud) or [make:foundation](#makefoundation) command to create the route, model, migration, api route, 
+You can use our **[make:crud](#makecrud)** or **[make:foundation](#makefoundation)** command to create the route, model, migration, api route, 
 controller, api controller, factory method and test to set up the data you want.
 
 In the event you don't want to use our commands, then you have to do it on your own.  If you do that,
@@ -535,7 +534,7 @@ Again note the header and footer are brought in by master page, which you create
 separately.  We recommend our make:master command for creating master page because it will
 set the dependcies for the views.
 
-When you run the [make:views](#makeviews) command with ‘dt’, you get two additional view pages.  
+When you run the **[make:views](#makeviews)** command with ‘dt’, you get two additional view pages.  
 One is datatable.blade.php, which holds the table partial.  The other is 
 datatable-script.blade.php, which holds the datatable script.
 
@@ -550,7 +549,7 @@ As mentioned numerous times throughout the documentation, that you need the foll
 <meta name="csrf-token" content="{!! csrf_token() !!}">
 ```
 
-The easiest way to make sure you have all the configuration correct is to use our [make:master](#makemaster)
+The easiest way to make sure you have all the configuration correct is to use our **[make:master](#makemaster)**
 command for your master page, it will include the above meta tag.
 
 You can see how I did all this in the demo app:
@@ -567,10 +566,10 @@ for your api call, which again, using widget as an example, would be:
 Route::any('api/widget', 'ApiController@widgetData');
 ```
 
-Please note that this is provided with our [make:crud](#makecrud) and [make:foundation](#makefoundation) commands.
+Please note that this is provided with our **[make:crud](#makecrud)** and **[make:foundation](#makefoundation)** commands.
 
 This route assumes you have a controller named ApiController, which are also provided by
-make:crud and [make:foundation](#makefoundation).  
+**[make:crud](#makecrud)** and **[make:foundation](#makefoundation)**.  
 
 I’m using any as the verb here so I can do a get request to debug.  You also need to format 
 the json response a specific way,  so for example, you api controller could look like this:
@@ -648,13 +647,13 @@ I break out my meta section as a view partial, which gets called into master.bla
 but you can do it any way you want as long as you have it in there correctly.
 
 Please note that is the code, not a live demo.  But you can see how I structured the 
-master page and the cdn calls.  This is exactly what our [make:master](#makemaster) command creates.
+master page and the cdn calls.  This is exactly what our **[make:master](#makemaster)** command creates.
 
-When you run the [make:views](#makeviews) command with ‘vue’, you get your script, template, and css
+When you run the **[make:views](#makeviews)** command with ‘vue’, you get your script, template, and css
 all included on the same index page.  You also get create.blade.php, edit.blade.php, and show.blade.php,
 but those are the same as the basic template, so refer to that for what those will look like.
 
-The ViewMaker will get you up and running quickly, but you should move your 
+The **ViewMaker** will get you up and running quickly, but you should move your 
 vue js code to a permanent home, such as in public/js folder 
 or assets/js or some other location for your js assets.  It’s up to you how you 
 want to organize that.  The same is true for the css that I provided for it.
@@ -671,7 +670,7 @@ Note: this is a different convention than the datatables version.
 The route assumes you have a controller named ApiController with a widgetVueData method.  Oviously,
 if your model is something other than Widget, you would substitute the model name for widget.
 
-Our [make:crud](#makecrud) and [make:foundation](#makefoundation) commands will build the controller for you or you have to do it on
+Our **[make:crud](#makecrud)** and **[make:foundation](#makefoundation)** commands will build the controller for you or you have to do it on
 your own.
 
 I’m using any as the verb here so I can do a get request to debug.  As a basic example, your api controller could look 
@@ -719,8 +718,8 @@ are just starting with Vue, it will give you some idea of how it works.
 
 ## Conventions
 
-It's worth reviewing the conventions to see how it all works.  If you are using our [make:foundation](#makefoundation) or 
-[make:crud](#makecrud) command, these are the conventions it follows, and all the work is done for you.
+It's worth reviewing the conventions to see how it all works.  If you are using our **[make:foundation](#makefoundation)** or 
+**[make:crud](#makecrud)** command, these are the conventions it follows, and all the work is done for you.
 
 If you are making your own models, routes, controllers, etc., it's important to reference things
 correctly or the views will not work.
@@ -844,7 +843,7 @@ you will have to add those yourself anyway.
 
 I hope you enjoy this plugin and find it useful.  I don’t have a donate button, but If you would like 
 to support my work and learn more about Laravel, you can do so by buying one of 
-my books, [Laraboot: laravel 5.2 For Beginners](https://leanpub.com/laravel-5-for-beginners-laraboot), 
+my books, **[Laraboot: laravel 5.2 For Beginners](https://leanpub.com/laravel-5-for-beginners-laraboot)**, 
 I really appreciate it.
 
 ## Change log
