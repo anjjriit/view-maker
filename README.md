@@ -8,7 +8,7 @@
 tool that ships with Laravel.  **ViewMaker** provides a suite of commands that help you quickly stand up
 a crud application from scratch in very little time, with views that feature a working data grid.
 
-**ViewMaker** does more than just create views.  **ViewMaker's** **[make:foundation](#makefoundation)** artisan command builds a foundation for by creating a a model from 
+**ViewMaker** does more than just create views.  **ViewMaker's** **[make:foundation](#makefoundation)** artisan command builds a foundation for you by creating a model from 
 scratch with corresponding migration, routes, api, controllers and views, forming a basic crud app, with searchable, 
 sortable columns.  It also builds a basic unit test and sets up your factory for quick population of seed data.
 
@@ -822,7 +822,7 @@ with the following convention:
 $modelName . '_name'
 ```
 
-So that would mean that you have to have a widget_name column in your db.  A quick note 
+So that would mean that you have to have a widget_name column in your db, if you are following the Widget model example.  A quick note 
 on why I do it this way.  You could have several models with a name attribute.  By 
 making the model part of the name of the attribute, there is never confusion between 
 widget_name and product_name, for example, and that makes working with queries easier in the long 
