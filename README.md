@@ -312,7 +312,26 @@ This will create the following:
 The master page includes the partials and this makes the code very easy to work with.
 
 ViewMaker includes a minimal bootstrap implementation, which you can easily change to suit
-your tastes.
+your tastes.  Note that inside the css partial, you get the following:
+
+~~~~
+
+<!-- Move style to a permanent home in your main .css file -->
+<style>
+
+    body {
+        padding-top: 65px; }
+
+</style>
+
+~~~~
+
+This is so the breadcrumbs will show below the nav, which is a bootstrap top pin.  You should move that to a permanent 
+home as the comment suggests.  If your main .css already accounts for this padding, you can simply remove this
+style from your css.blade.php file.
+
+If you have a .css file that your application requires, you need to call it from your css.blade.php file.
+Obviously, you can and should modify these files in any way that suits your application's needs.
 
 Using ViewMaker's make:master also makes it easier to work with the other commands, such as **[make:foundation](#makefoundation)**,
 since it is setup for the dependencies that you need.
