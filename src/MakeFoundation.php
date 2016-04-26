@@ -16,7 +16,7 @@ class MakeFoundation extends Command
     protected $signature = 'make:foundation
                            {ModelName}
                            {MasterPage}
-                           {TemplateType=plain}';
+                           {TemplateType}';
 
     /**
      * The console command description.
