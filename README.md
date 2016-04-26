@@ -210,8 +210,9 @@ in some versions you need one, in some versions you don't, and that should solve
 
 Also note, if you are using the **[make:foundation](#makefoundation)** command and input 'plain' or 'basic' for template
 type, the test will fail because it is expecting to see the name of the record on the index page,
-and those templates intentionally do not include a way to do that, since the purpose is keep the code minimal.  
-If that is your use case, then modify the test to suit your needs.
+and those templates intentionally do not include a way to do that, since the purpose is keep the code minimal.
+Similarly, if you choose an index only option, there will be no create view and the test will fail. In those 
+cases modify the test as you see fit. 
 
 Next you can use the factory to seed the db.  We start by calling tinker:
 
@@ -251,8 +252,11 @@ The make views lets you quickly scaffold views for create, show, edit, and index
 The make:views command has  the following arguments:
 
 ```
-php artisan make:views {ModelName} {MasterPageName} {TemplateType}
+php artisan make:views {ModelName} {MasterPageName} {TemplateType} {IndexOnly=false}
 ```
+The last argument is optional and indicates that you only want the index view in the view folder.
+By default it is false, so unless you indicate otherwise, you will get all the views.
+If you do wish to use that option, you must enter the word 'index' as your last argument, no quotes.
 
 Before running make:views, at a minimum, you should already have your model, route and controller created.
 As an alternative to doing that manually, you can use **ViewMaker's** **[make:crud](#makecrud)** to do it for you.  Or
@@ -392,10 +396,14 @@ case modify the test as you see fit.
 The make:foundation command has the following arguments:
 
 ```
-php artisan make:foundation {ModelName} {MasterPageName} {TemplateType}
+php artisan make:foundation {ModelName} {MasterPageName} {TemplateType} {IndexOnly=false}
 ```
 
-So for example, if you wanted to create a model named Widget, and you had a master page 
+The last argument is optional and indicates that you only want the index view in the view folder.  
+By default it is false, so unless you indicate otherwise, you will get all the views.  If you do wish
+to use that option, you must enter the word 'index' as your last argument, no quotes.
+
+Let's look at some typical examples.  If you wanted to create a model named Widget, and you had a master page 
 named master.blade.php, you may do one of the following:
 
 ```
@@ -434,8 +442,9 @@ make:foundation also appends to the following files:
 * ApiController (if it already exists)
 
 Note that the test included with make:foundation will fail if you select 'plain' or 'basic' as
-your template type because those templates don't output the record name to the index page.  In that 
-case modify the test as you see fit.
+your template type or if you have because those templates don't output the record name to the index page.  
+Similarly, if you choose an index only option, there will be no create view and the test will fail. In those 
+cases modify the test as you see fit.
 
 ## Requirements For Views
 
