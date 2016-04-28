@@ -62,7 +62,7 @@ Use **[make:views](#makeviews)** to create views, including:
 * edit
 * show 
  
- Use **[make:master](#makemaster)** to create a master page, which includes:
+Use **[make:master](#makemaster)** to create a master page, which includes:
  
  * layouts folder
  * master (you give it your name) 
