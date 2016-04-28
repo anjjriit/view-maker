@@ -768,7 +768,7 @@ class ApiController extends Controller
                              'created_at as Created')
                     ->get();
    
-           return $widgets;
+           return response()->json($widgets);
    
        }
 }
