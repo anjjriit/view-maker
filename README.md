@@ -491,8 +491,9 @@ In the following sections, we cover the template types that are available in the
 
 ## Plain Templates
 
-Using plain for template type will  create a widget folder in your views 
-directory, and then within that folder, the following files:
+Using plain for template type will create a view folder, named according to your input, in your views 
+directory.  For example, if you input Widget as the model, you would get a widget view folder. Then 
+within that folder, the following files:
 
 * create
 * show
@@ -511,7 +512,7 @@ the master page is included in the plain templates.
 
 When using plain as the template type, you get the view folder and and the 4 view 
 files.  In each file, you get the extends directive and a single \<h1> tag,  
-for example in create.blade.php, you would see:
+for example in create.blade.php, if you input Widget as your model, you would see:
 
 "This is your Widget Create page"
 
@@ -528,7 +529,7 @@ example:
 php artisan make:views widget master basic
 ```
 
-Using ‘basic’ for template type will  create a widget folder in your views directory, 
+Using ‘basic’ for template type will create a widget folder in your views directory, 
 and then within that folder, the following files:
 
 * create
