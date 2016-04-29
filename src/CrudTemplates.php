@@ -63,7 +63,7 @@ class :::upperCaseModelName:::Controller extends Controller
     {
 
         \$this->validate(\$request, [
-            ':::field_name:::' => 'required|unique::::tableName:::|alpha_num|max:30',
+            ':::field_name:::' => 'required|unique::::tableName:::|string|max:30',
 
         ]);
 
