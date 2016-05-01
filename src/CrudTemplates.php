@@ -272,7 +272,7 @@ class ApiController extends Controller
                                       'created_at as Created')
                                       ->get();
 
-        return \$:::modelResults:::;
+        return response()->json(\$:::modelResults:::);
 
     }
 
