@@ -270,7 +270,7 @@ class ApiController extends Controller
                              ->select('id as Id',
                                       ':::field_name::: as Name',
                                       'created_at as Created')
-                                      ->get();
+                             ->paginate(10);
 
         return response()->json(\$:::modelResults:::);
 
@@ -307,7 +307,7 @@ EOD;
                              ->select('id as Id',
                                       ':::field_name::: as Name',
                                       'created_at as Created')
-                             ->get();
+                             ->paginate(10);
 
         return response()->json(\$:::modelResults:::);
 

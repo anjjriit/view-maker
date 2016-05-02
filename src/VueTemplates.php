@@ -108,12 +108,20 @@ class VueTemplates
                     </div>
 
             </section>
+
+            <!-- paginate here -->
+
+                <ul class="pagination pull-right">
+                    <li><a @click.prevent="prevpage" >prev</a></li>
+                    <li v-for="page in pages" v-bind:class="{'active': checkpage(page)}"> <a @click="getdata(page)">@{{ page }}</a></li>
+                    <li><a @click="nextpage">next</a></li>
+                </ul>
         </div>
         </div>
 
     </script>
 
-    <!-- demo root element -->
+    <!-- root element -->
     <div id=":::modelName:::">
         <form id="search">
             Search <input name="query" v-model="searchQuery">
@@ -121,7 +129,13 @@ class VueTemplates
         <:::gridName:::
                 :data="gridData"
                 :columns="gridColumns"
-                :filter-key="searchQuery">
+                :filter-key="searchQuery"
+                :total="total"
+                :next_page_url="next_page_url"
+                :prev_page_url="prev_page_url"
+                :last_page="last_page"
+                :current_page="current_page"
+                :pages="pages">
         <:::endGridName:::>
     </div>
 
@@ -163,7 +177,13 @@ class VueTemplates
             props: {
                 data: Array,
                 columns: Array,
-                filterKey: String
+                filterKey: String,
+                total: Number,
+                next_page_url: String,
+                prev_page_url: String,
+                last_page: Number,
+                current_page: Number,
+                pages:  Array
             },
             data: function () {
                 var sortOrders = {};
@@ -179,6 +199,45 @@ class VueTemplates
                 sortBy: function (key) {
                     this.sortKey = key;
                     this.sortOrders[key] = this.sortOrders[key] * -1;
+                },
+                nextpage: function () {
+                    $.getJSON(this.next_page_url, function (data) {
+                        this.data = data.data;
+                        this.total = data.total;
+                        this.last_page =  data.last_page;
+                        this.next_page_url = data.next_page_url;
+                        this.prev_page_url = data.prev_page_url;
+                        this.current_page = data.current_page;
+                    }.bind(this));
+                },
+                prevpage: function () {
+                    $.getJSON(this.prev_page_url, function (data) {
+                        this.data = data.data;
+                        this.total = data.total;
+                        this.last_page =  data.last_page;
+                        this.next_page_url = data.next_page_url;
+                        this.prev_page_url = data.prev_page_url;
+                        this.current_page = data.current_page;
+                    }.bind(this));
+                },
+
+                getdata: function (page) {
+
+                    getPage = ':::vueApiRoute:::?page=' + page;
+
+                    $.getJSON(getPage, function (data) {
+                        this.data = data.data;
+                        this.total = data.total;
+                        this.last_page =  data.last_page;
+                        this.next_page_url = data.next_page_url;
+                        this.prev_page_url = data.prev_page_url;
+                        this.current_page = data.current_page;
+                    }.bind(this));
+                },
+                checkpage: function(page){
+
+                    return page == this.current_page;
+
                 }
             }
         });
@@ -191,7 +250,13 @@ class VueTemplates
                 gridColumns: ['Id', 'Name', 'Created'],
                 gridData: {
                     rows: null
-                }
+                },
+                total: null,
+                next_page_url: null,
+                prev_page_url: null,
+                last_page: null,
+                current_page: null,
+                pages: []
             },
             ready: function () {
                 this.loadData();
@@ -199,9 +264,25 @@ class VueTemplates
 
             methods: {
                 loadData: function () {
-                    $.getJSON(':::vueApiRoute:::', function (rows) {
-                        this.gridData = rows;
+                    $.getJSON(':::vueApiRoute:::', function (data) {
+                        this.gridData = data.data;
+                        this.total = data.total;
+                        this.last_page =  data.last_page;
+                        this.next_page_url = data.next_page_url;
+                        this.prev_page_url = data.prev_page_url;
+                        this.current_page = data.current_page;
+                        this.setPageNumbers();
                     }.bind(this));
+                },
+
+                setPageNumbers: function(){
+
+                    for (var i = 1; i <= this.last_page; i++) {
+                        this.pages.push(i);
+
+                    }
+
+
                 }
 
             }

@@ -702,7 +702,8 @@ and controller, that will get you the following on your index page:
 ![](vue-index.png)
 
 Again note the header and footer are brought in by master page, which you create 
-separately on your own.  
+separately on your own.  Though not shown in the image, as of version 3.1.2. the vue template
+has pagination.
 
 You also need a meta tag, which will create the tokens for your ajax calls,
 so put it in the appropriate place in your head section:
@@ -767,7 +768,7 @@ class ApiController extends Controller
                     ->select('id as Id',
                              'widget_name as Name',
                              'created_at as Created')
-                    ->get();
+                    ->paginate(10);
    
            return response()->json($widgets);
    
