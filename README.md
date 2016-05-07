@@ -135,7 +135,7 @@ All of these [requirements](#requirements-for-views) are listed in detail below,
 I have listed them up here.  You can use it as a check list to make sure you have what you need to
 use ViewMaker successfully.
 
-## make:foundation Workflow
+## make:foundation Workflow Example
 
 To fully understand the power of the **[make:foundation](#makefoundation)** command, let's walk through a typcial use case.  For this,
 we will assume that you have a master page named master.blade.php in your layouts folder, which is in your views folder.
