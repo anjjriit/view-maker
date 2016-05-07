@@ -844,7 +844,7 @@ Route::resource('alpha-widget', 'AlphaWidgetController');
 
 ~~~~
 
-ViewMaker, as I mentioned also in chapter 3, will convert plural in model names to singular, which is a handy protector against making mistakes.
+ViewMaker will convert plural in model names to singular, which is a handy protector against making mistakes.
 
 
 ### Routes
@@ -929,7 +929,7 @@ ____________________________________________________________________________
 
 ### Field Names
 
-As I mention in the other section, the templates are built with a single field, with the following convention:
+ViewMaker templates are built with a single field, with the following convention:
 
 ~~~~
 
