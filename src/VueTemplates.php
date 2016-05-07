@@ -196,7 +196,7 @@ class VueTemplates
         Vue.component(':::gridName:::', {
             template: '#grid-template',
             props: {
-                data: Array,
+                data: null,
                 columns: Array,
                 filterKey: String,
                 total: Number,
@@ -205,9 +205,9 @@ class VueTemplates
                 last_page: Number,
                 current_page: Number,
                 pages:  Array,
-                first_page_url: String,
-                last_page_url: String,
-                go_to_page: Number
+                first_page_url: null,
+                last_page_url: null,
+                go_to_page: null
             },
             data: function () {
                 var sortOrder = 1;
