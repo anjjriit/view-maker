@@ -205,9 +205,9 @@ class VueTemplates
                 last_page: Number,
                 current_page: Number,
                 pages:  Array,
-                first_page_url: null,
-                last_page_url: null,
-                go_to_page: null
+                first_page_url: String,
+                last_page_url: String,
+                go_to_page: Number
             },
             data: function () {
                 var sortOrder = 1;
@@ -306,9 +306,9 @@ class VueTemplates
                 last_page: null,
                 current_page: null,
                 pages: [],
-                first_page_url: String,
-                last_page_url: String,
-                go_to_page: ''
+                first_page_url: null,
+                last_page_url: null,
+                go_to_page: 1
             },
             ready: function () {
                 this.loadData();
