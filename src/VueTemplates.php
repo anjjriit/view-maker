@@ -299,9 +299,7 @@ class VueTemplates
             data: {
                 searchQuery: '',
                 gridColumns: ['Id', 'Name', 'Created'],
-                gridData: {
-                    rows: null
-                },
+                gridData: [],
                 total: null,
                 next_page_url: null,
                 prev_page_url: null,
