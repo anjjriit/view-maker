@@ -84,7 +84,7 @@ class VueTemplates
                 :class="{active: sortKey == key}">
                 @{{key | capitalize}}
                 <span class="arrow"
-                      :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
+                      :class="sortOrder > 0 ? 'asc' : 'dsc'">
           </span>
                 </th>
                 <th>Actions</th>
@@ -196,7 +196,7 @@ class VueTemplates
         Vue.component(':::gridName:::', {
             template: '#grid-template',
             props: {
-                data: null,
+                data: Array,
                 columns: Array,
                 filterKey: String,
                 total: Number,
@@ -285,7 +285,7 @@ class VueTemplates
                         console.log(this.data);
                     }.bind(this));
                 },
-                checkpage: function(page){
+                checkPage: function(page){
 
                     return page == this.current_page;
 
