@@ -282,6 +282,24 @@ class ApiController extends Controller
 
         }
 
+        if (\$request->has('keyword')){
+
+            \$keyword = \$request->get('keyword');
+
+            \$:::modelResults::: = DB::table(':::tableName:::')
+                ->select('id as Id',
+                    ':::field_name::: as Name',
+                    'created_at as Created')
+                ->where(':::field_name:::', 'like', '%' . \$keyword . '%')
+                ->orderBy(\$column, \$direction)
+                ->paginate(10);
+
+            return response()->json(\$:::modelResults:::);
+
+
+
+        }
+
         \$:::modelResults::: = DB::table(':::tableName:::')
                              ->select('id as Id',
                                       ':::field_name::: as Name',
@@ -320,7 +338,7 @@ EOD;
 
     public function :::vueApiControllerMethod:::(Request \$request){
 
-    \$column = 'id';
+        \$column = 'id';
         \$direction = 'asc';
 
         if (\$request->has('column')){
@@ -332,6 +350,24 @@ EOD;
 
                 \$direction = \$request->get('direction') == 1 ? 'desc' : 'asc';
             }
+
+
+        }
+
+        if (\$request->has('keyword')){
+
+            \$keyword = \$request->get('keyword');
+
+            \$:::modelResults::: = DB::table(':::tableName:::')
+                ->select('id as Id',
+                    ':::field_name::: as Name',
+                    'created_at as Created')
+                ->where(':::field_name:::', 'like', '%' . \$keyword . '%')
+                ->orderBy(\$column, \$direction)
+                ->paginate(10);
+
+            return response()->json(\$:::modelResults:::);
+
 
 
         }

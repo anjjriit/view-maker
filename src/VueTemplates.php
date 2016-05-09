@@ -69,6 +69,9 @@ class VueTemplates
     <script type="text/x-template" id="grid-template">
         <div class="row">
             <div class="col-lg-12">
+            <form id="search">
+                    Search <input name="query" v-model="query" @keyup="search(query)">
+                </form>
             <div class="pull-right">
                     @{{ total }} Total Results
             </div>
@@ -91,9 +94,7 @@ class VueTemplates
             </tr>
             </thead>
             <tbody>
-            <tr v-for="
-        row in data
-        | filterBy filterKey">
+            <tr v-for="row in data">
                 <td>
                     @{{row.Id}}
                 </td>
@@ -128,9 +129,9 @@ class VueTemplates
 
                 <ul class="pagination pull-right">
                     <li><a @click="getData(first_page_url)"> << </a></li>
-                    <li><a @click.prevent="getData(prev_page_url)" >prev</a></li>
+                    <li v-if="checkUrlNotNull(prev_page_url)"><a @click.prevent="getData(prev_page_url)" >prev</a></li>
                     <li v-for="page in pages" v-if="page > current_page - 2 && page < current_page + 2" v-bind:class="{'active': checkPage(page)}"> <a @click="getData(page)">@{{ page }}</a></li>
-                    <li><a @click="getData(next_page_url)">next</a></li>
+                    <li v-if="checkUrlNotNull(next_page_url)"><a @click="getData(next_page_url)">next</a></li>
                     <li><a @click="getData(last_page_url)"> >> </a></li>
                 </ul>
     </div>
@@ -141,13 +142,10 @@ class VueTemplates
 
     <!-- root element -->
     <div id=":::modelName:::">
-        <form id="search">
-            Search <input name="query" v-model="searchQuery">
-        </form>
         <:::gridName:::
                 :data="gridData"
                 :columns="gridColumns"
-                :filter-key="searchQuery"
+                :query="query"
                 :total="total"
                 :next_page_url="next_page_url"
                 :prev_page_url="prev_page_url"
@@ -198,7 +196,7 @@ class VueTemplates
             props: {
                 data: Array,
                 columns: Array,
-                filterKey: String,
+                query: String,
                 total: Number,
                 next_page_url: String,
                 prev_page_url: String,
@@ -226,21 +224,29 @@ class VueTemplates
 
                 },
 
+                search: function(query){
+
+                this.getData(query);
+
+                },
+
                 getData: function (page) {
 
                     switch (page){
 
                         case this.prev_page_url :
 
-                            getPage = this.prev_page_url + '&column=' + this.sortKey + '&direction=' + this.sortOrder;
+                                    getPage = this.prev_page_url + '&column=' + this.sortKey + '&direction=' + this.sortOrder;
 
-                            break;
+                                    break;
 
                         case this.next_page_url :
 
-                            getPage = this.next_page_url + '&column=' + this.sortKey + '&direction=' + this.sortOrder;
+                                getPage = this.next_page_url + '&column=' + this.sortKey + '&direction=' + this.sortOrder;
 
-                            break;
+                                break;
+
+
                         case this.first_page_url :
 
                             getPage = this.first_page_url + '&column=' + this.sortKey + '&direction=' + this.sortOrder;
@@ -253,11 +259,17 @@ class VueTemplates
 
                             break;
 
+                            case this.query :
+
+                            getPage = ':::vueApiRoute:::?keyword=' + this.query + '&column=' + this.sortKey + '&direction=' + this.sortOrder;
+
+                            break;
+
                         case this.go_to_page :
 
                             if( this.go_to_page != '' && this.go_to_page <= parseInt(this.last_page)){
 
-                                getPage = ':::vueApiRoute:::?page=' + this.go_to_page + '&column=' + this.sortKey + '&direction=' + this.sortOrder;
+                                getPage = ':::vueApiRoute:::?page=' + this.go_to_page + '&column=' + this.sortKey + '&direction=' + this.sortOrder + '&keyword=' + this.query;
 
                                 this.go_to_page = '';
 
@@ -270,24 +282,75 @@ class VueTemplates
 
                         default :
 
-                            getPage = ':::vueApiRoute:::?page=' + page + '&column=' + this.sortKey + '&direction=' + this.sortOrder;
+                            getPage = ':::vueApiRoute:::?page=' + page + '&column=' + this.sortKey + '&direction=' + this.sortOrder + '&keyword=' + this.query;
 
                             break;
                     }
 
-                    $.getJSON(getPage, function (data) {
-                        this.data = data.data;
-                        this.total = data.total;
-                        this.last_page =  data.last_page;
-                        this.next_page_url = data.next_page_url;
-                        this.prev_page_url = data.prev_page_url;
-                        this.current_page = data.current_page;
-                        console.log(this.data);
-                    }.bind(this));
+                    if (this.query == '' && getPage != null){
+
+                        $.getJSON(getPage, function (data) {
+                            this.data = data.data;
+                            this.total = data.total;
+                            this.last_page =  data.last_page;
+                            this.next_page_url = data.next_page_url;
+                            this.prev_page_url = data.prev_page_url;
+                            this.current_page = data.current_page;
+                            }.bind(this));
+
+                    } else {
+
+                        if (getPage != null){
+
+                            $.getJSON(getPage, function (data) {
+                            this.data = data.data;
+                            this.total = data.total;
+                            this.last_page =  data.last_page;
+                            this.next_page_url = data.next_page_url + '&keyword=' +this.query;
+                            this.prev_page_url = data.prev_page_url + '&keyword=' +this.query;
+                            this.first_page_url = ':::vueApiRoute:::?page=1&keyword=' +this.query;
+                            this.last_page_url = ':::vueApiRoute:::?page=' + this.last_page + '&keyword=' +this.query;
+                            this.current_page = data.current_page;
+                            this.resetPageNumbers();
+                            }.bind(this));
+
+                    }
+
+                }
+
                 },
                 checkPage: function(page){
 
                     return page == this.current_page;
+
+                },
+
+                resetPageNumbers: function(){
+
+                    this.pages = [];
+
+                    for (var i = 1; i <= this.last_page; i++) {
+                        this.pages.push(i);
+
+                    }
+
+
+                },
+
+                checkUrlNotNull: function(url){
+
+                    if (url != null){
+
+                    check =  url.match(/null/g);
+
+                        if (check == 'null'){
+
+                            return false;
+                        }
+
+                    }
+
+                    return url != null;
 
                 }
             }
@@ -297,7 +360,7 @@ class VueTemplates
         var :::modelName::: = new Vue({
             el: '#:::modelName:::',
             data: {
-                searchQuery: '',
+                query: '',
                 gridColumns: ['Id', 'Name', 'Created'],
                 gridData: [],
                 total: null,
@@ -308,11 +371,13 @@ class VueTemplates
                 pages: [],
                 first_page_url: null,
                 last_page_url: null,
-                go_to_page: 1
+                go_to_page: null
             },
             ready: function () {
                 this.loadData();
             },
+
+            components: ':::gridName:::',
 
             methods: {
                 loadData: function () {
