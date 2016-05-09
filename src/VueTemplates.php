@@ -341,6 +341,8 @@ class VueTemplates
 
                     if (url != null){
 
+                    url = url.slice(0,4);
+
                     check =  url.match(/null/g);
 
                         if (check == 'null'){
