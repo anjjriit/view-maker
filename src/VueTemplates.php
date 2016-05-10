@@ -306,8 +306,8 @@ class VueTemplates
                             this.data = data.data;
                             this.total = data.total;
                             this.last_page =  data.last_page;
-                            this.next_page_url = data.next_page_url + '&keyword=' +this.query;
-                            this.prev_page_url = data.prev_page_url + '&keyword=' +this.query;
+                            this.next_page_url = (data.next_page_url == null) ? null : data.next_page_url + '&keyword=' +this.query;
+                            this.prev_page_url = (data.prev_page_url == null) ? null : data.prev_page_url + '&keyword=' +this.query;
                             this.first_page_url = ':::vueApiRoute:::?page=1&keyword=' +this.query;
                             this.last_page_url = ':::vueApiRoute:::?page=' + this.last_page + '&keyword=' +this.query;
                             this.current_page = data.current_page;
@@ -338,19 +338,6 @@ class VueTemplates
                 },
 
                 checkUrlNotNull: function(url){
-
-                    if (url != null){
-
-                    url = url.slice(0,4);
-
-                    check =  url.match(/null/g);
-
-                        if (check == 'null'){
-
-                            return false;
-                        }
-
-                    }
 
                     return url != null;
 
