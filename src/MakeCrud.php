@@ -7,7 +7,7 @@ use Carbon\Carbon;
 
 class MakeCrud extends Command
 {
-    use BuildsCrudTemplates, ConfiguresCrudInput, WritesCrudFiles;
+    use BuildsCrudTemplates, ConfiguresCrudInput, WritesCrudFiles, HasParentAndChild;
     /**
      * The name and signature of the console command.
      *

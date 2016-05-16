@@ -6,7 +6,7 @@ use Illuminate\Console\Command;
 
 class MakeViews extends Command
 {
-    use FormatsInput, BuildsTemplates, WritesViewFiles;
+    use FormatsInput, BuildsTemplates, WritesViewFiles, HasParentAndChild;
     /**
      * The name and signature of the console command.
      *

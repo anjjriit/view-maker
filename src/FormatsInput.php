@@ -31,6 +31,10 @@ trait FormatsInput
 
     private $index;
 
+    private $parent;
+
+    private $child;
+
     private $validTemplateTypes = ['plain',
                                    'basic',
                                    'dt',
@@ -43,6 +47,67 @@ trait FormatsInput
         $this->inputs = $this->argument();
 
         $this->theModel = str_singular($this->inputs['ModelName']);
+
+        $this->commonConfig();
+
+
+
+
+    }
+
+    private function setParentConfigFromInputs()
+    {
+        // sets inputs from the artisan command line arguments
+
+        $this->inputs = $this->argument();
+
+        $theModel = str_singular($this->inputs['ParentName']);
+
+        $this->theModel = ucwords($theModel);
+
+        $this->setChildParentNames();
+
+        $this->commonConfig();
+
+
+
+
+
+    }
+
+    private function setChildConfigFromInputs()
+    {
+        // sets inputs from the artisan command line arguments
+
+        $this->inputs = $this->argument();
+
+        $theModel = str_singular($this->inputs['ChildName']);
+
+        $this->theModel = ucwords($theModel);
+
+        $this->setChildParentNames();
+
+        $this->commonConfig();
+
+
+    }
+
+    private function setChildParentNames()
+    {
+
+        $parent = str_singular($this->inputs['ParentName']);
+
+        $this->parent = ucwords($parent);
+
+        $child = str_singular($this->inputs['ChildName']);
+
+        $this->child = ucwords($child);
+
+    }
+
+    private function commonConfig()
+    {
+
 
         $this->folderName = $this->formatModelPath($this->theModel);
 
@@ -146,6 +211,13 @@ trait FormatsInput
         $this->tokens['folderName'] = $this->folderName;
         $this->tokens['modelName'] = $this->theModel;
         $this->tokens['masterPage'] = $this->masterPage;
+
+        if ($this->parent){
+
+            $this->tokens['parent'] = $this->parent;
+            $this->tokens['child'] = $this->child;
+        }
+
 
     }
 

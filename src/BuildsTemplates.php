@@ -48,13 +48,44 @@ trait BuildsTemplates
 
             case 'create' :
 
+                if ($this->hasChild($tokens)){
+
+                   if ($this->isViewChild($tokens)){
+
+                       return $commonTemplateBuilder->commonChildCreateTemplate();
+
+                   }
+
+                }
+
+
                 return $commonTemplateBuilder->commonCreateTemplate();
 
             case 'edit' :
 
+                if ($this->hasChild($tokens)){
+
+                    if ($this->isViewChild($tokens)){
+
+                        return $commonTemplateBuilder->commonChildEditTemplate();
+
+                    }
+
+                }
+
                 return $commonTemplateBuilder->commonEditTemplate();
 
             case 'show' :
+
+                if ($this->hasChild($tokens)){
+
+                    if ($this->isViewChild($tokens)){
+
+                        return $commonTemplateBuilder->commonChildShowTemplate();
+
+                    }
+
+                }
 
                 return $commonTemplateBuilder->commonShowTemplate();
 
@@ -82,13 +113,43 @@ trait BuildsTemplates
 
             case 'create' :
 
+                if ($this->hasChild($tokens)){
+
+                    if ($this->isViewChild($tokens)){
+
+                        return $commonTemplateBuilder->commonChildCreateTemplate();
+
+                    }
+
+                }
+
                 return $commonTemplateBuilder->commonCreateTemplate();
 
             case 'edit' :
 
+                if ($this->hasChild($tokens)){
+
+                    if ($this->isViewChild($tokens)){
+
+                        return $commonTemplateBuilder->commonChildEditTemplate();
+
+                    }
+
+                }
+
                 return $commonTemplateBuilder->commonEditTemplate();
 
             case 'show' :
+
+                if ($this->hasChild($tokens)){
+
+                    if ($this->isViewChild($tokens)){
+
+                        return $commonTemplateBuilder->commonChildShowTemplate();
+
+                    }
+
+                }
 
                 return $commonTemplateBuilder->commonShowTemplate();
 
@@ -98,9 +159,29 @@ trait BuildsTemplates
 
             case 'datatable' :
 
+                if ($this->hasChild($tokens)){
+
+                    if ($this->isViewChild($tokens)){
+
+                        return $dtTemplateBuilder->dtChildDatatableTemplate();
+
+                    }
+
+                }
+
                 return $dtTemplateBuilder->dtDatatableTemplate();
 
             case 'datatable-script' :
+
+                if ($this->hasChild($tokens)){
+
+                    if ($this->isViewChild($tokens)){
+
+                        return $dtTemplateBuilder->dtChildDatatableScriptTemplate();
+
+                    }
+
+                }
 
                 return $dtTemplateBuilder->dtDatatableScriptTemplate();
 
@@ -155,17 +236,57 @@ trait BuildsTemplates
 
             case 'create' :
 
+                if ($this->hasChild($tokens)){
+
+                    if ($this->isViewChild($tokens)){
+
+                        return $commonTemplateBuilder->commonChildCreateTemplate();
+
+                    }
+
+                }
+
                 return $commonTemplateBuilder->commonCreateTemplate();
 
             case 'edit' :
+
+                if ($this->hasChild($tokens)){
+
+                    if ($this->isViewChild($tokens)){
+
+                        return $commonTemplateBuilder->commonChildEditTemplate();
+
+                    }
+
+                }
 
                 return $commonTemplateBuilder->commonEditTemplate();
 
             case 'show' :
 
+                if ($this->hasChild($tokens)){
+
+                    if ($this->isViewChild($tokens)){
+
+                        return $commonTemplateBuilder->commonChildShowTemplate();
+
+                    }
+
+                }
+
                 return $commonTemplateBuilder->commonShowTemplate();
 
             case 'index' :
+
+                if ($this->hasChild($tokens)){
+
+                    if ($this->isViewChild($tokens)){
+
+                        return $vueTemplateBuilder->vueChildIndexTemplate();
+
+                    }
+
+                }
 
                 return $vueTemplateBuilder->vueIndexTemplate();
 

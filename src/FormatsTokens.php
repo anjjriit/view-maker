@@ -7,6 +7,8 @@ class FormatsTokens
     public $modelName;
     public $folderName;
     public $masterPage;
+    public $parent;
+    public $child;
 
     public function __construct(array $tokens)
     {
@@ -28,10 +30,17 @@ class FormatsTokens
         $dtTableName = snake_case($this->modelName) . '_table';
         $masterPage = $this->masterPage;
         $modelName = $this->modelName;
+        $modelsUpperCase = ucwords(str_plural($this->modelName));
         $folderName = $this->folderName;
         $gridName = $this->formatVueGridName() . '-grid';
         $endGridName = '/' . $this->formatVueGridName() . '-grid';
         $vueApiRoute = 'api/' . $this->folderName . '-vue';
+        $parent = $this->parent;
+        $parentInstance = $this->formatParentInstanceVariable($this->parent);
+        $parentInstances = $this->formatParents($this->parent);
+        $parent_id = strtolower(snake_case($this->parent)) . '_id';
+        $parentFieldName = strtolower(snake_case($this->parent)) . '_name';
+        $child = $this->child;
 
         //create token array using compact
 
@@ -44,10 +53,17 @@ class FormatsTokens
                           'dtTableName',
                           'masterPage',
                           'modelName',
+                          'modelsUpperCase',
                           'folderName',
                           'gridName',
                           'endGridName',
-                          'vueApiRoute');
+                          'vueApiRoute',
+                          'parent',
+                          'parentInstance',
+                          'parentInstances',
+                          'parent_id',
+                          'parentFieldName',
+                          'child');
 
         $content = $this->insertTokensInContent($content, $tokens);
 
@@ -95,6 +111,12 @@ class FormatsTokens
         return camel_case($this->modelName);
     }
 
+    private function formatParentInstanceVariable()
+    {
+
+        return camel_case($this->parent);
+    }
+
     private function formatVueGridName()
     {
         $gridName = preg_split('/(?=[A-Z])/',$this->modelName);
@@ -104,6 +126,16 @@ class FormatsTokens
         $gridName = ltrim($gridName, '-');
 
         return $gridName = strtolower($gridName);
+
+    }
+
+    private function formatParents($parent)
+    {
+
+        $parent = strtolower($parent);
+
+        return str_plural($parent);
+
 
     }
 

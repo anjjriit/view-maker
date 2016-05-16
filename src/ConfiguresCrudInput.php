@@ -14,11 +14,16 @@ trait ConfiguresCrudInput
 
     private function setCrudTokens()
     {
-        $tokenBuilder = new CrudTokens($this->modelName);
+        // crudTokens is expecting an array
+
+        $model['model'] = $this->modelName;
+
+        $tokenBuilder = new CrudTokens($model);
 
         $this->crudTokens = $tokenBuilder->formatTokens();
 
     }
+
 
     private function setFilePaths()
     {

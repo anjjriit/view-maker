@@ -25,6 +25,9 @@ are done for you.
 This package also ships with a **[make:crud](#makecrud)** command, which creates the model, migration, routes, controllers, factory, and test
 without the views, in case you want to create those separately.
 
+We also have **[make:parent-child](#makeparent-child)**, which stands up a foundation for both a 
+parent and child, for example, category and subcategory.  
+
 With these commands, you can stand a project up quickly.  For example, you could use **[make:master](#makemaster)** to 
 create your master page, and then use **[make:foundation](#makefoundation)** to stand up all the crud and views that you 
 need to have an instant crud app in less than a minute.
@@ -105,6 +108,12 @@ The **[make:foundation](#makefoundation)** command also appends to the following
 * routes.php
 * ModelFactory.php
 * ApiController (if it already exists)
+
+Use the **[make:parent-child](#makeparent-child)** to create all crud and view files for both a parent and a child.
+This command operates the same way as the **[make:foundation](#makefoundation)** command, but it builds a foundation
+for both the parent and child.  In the views, it will display the relationship and in the create
+and edit views of the child, you will get the related parent, so when you create a child record, you can associate it
+to a parent record.
 
 Please note:
 
@@ -446,6 +455,38 @@ Note that the test included with make:foundation will fail if you select 'plain'
 your template type or if you have because those templates don't output the record name to the index page.  
 Similarly, if you choose an index only option, there will be no create view and the test will fail. In those 
 cases modify the test as you see fit.
+
+## make:parent-child
+
+Sometimes we need to associate two models, the most common example being Category and 
+Subcategory.  ViewMaker's make:parent-child let's you create this relationship with a single
+command.
+
+The command has the following arugments:
+
+```
+php artisan make:parent-child {ParentName} {ChildName} {MasterPageName} {TemplateType} {IndexOnly=false}
+```
+
+So for example, you might want to run it as follows:
+
+```
+php artisan make:parent-child Category Subcategory master vue
+```
+
+That would be the equivalent to running the **[make:foundation](#makefoundation)** command on both Category
+and Subcategory, with a few important differences.
+
+The datagrid it will build for Subcategory for example, will show the category that the subcategory belongs to.
+
+Both the parent model and the child model will be built with the relationship made for you.  The parent will
+have a has many relationship and the child will have a belongsTo relationsip in the model.
+
+You also get a dropdown list of parent models, for example, categories, on the child create form, or in this
+case the subcategory create form, which allows you to associate the child to the parent.
+
+This command, like the **[make:foundation](#makefoundation)** command, will create all the crud and views for you, you
+only need to run your migration, unit tests, and factory methods to populate them.  You can do this in under a minute.
 
 ## Requirements For Views
 
@@ -845,7 +886,6 @@ Route::resource('alpha-widget', 'AlphaWidgetController');
 ~~~~
 
 ViewMaker will convert plural in model names to singular, which is a handy protector against making mistakes.
-
 
 ### Routes
 
