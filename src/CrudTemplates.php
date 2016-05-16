@@ -190,11 +190,11 @@ class :::upperCaseModelName:::Controller extends Controller
     public function store(Request \$request)
     {
 
-       \$:::parentInstances::: = :::parent::::::::parentValidationList:::();
+       \$count = :::parent:::::count();
 
         \$this->validate(\$request, [
             ':::field_name:::' => 'required|unique::::tableName:::|string|max:30',
-            ':::parent_id:::' => "required|numeric|in:\$:::parentInstances:::"
+            ':::parent_id:::' => "required|numeric|digits_between:1,\$count"
 
         ]);
 
@@ -250,11 +250,11 @@ class :::upperCaseModelName:::Controller extends Controller
     public function update(Request \$request, \$id)
     {
 
-        \$:::parentInstances::: = :::parent::::::::parentValidationList:::();
+        \$count = :::parent:::::count();
 
         \$this->validate(\$request, [
             ':::field_name:::' => 'required|string|max:40|unique::::tableName:::,:::field_name:::,' .\$id,
-            ':::parent_id:::' => "required|numeric|in:\$:::parentInstances:::"
+            ':::parent_id:::' => "required|numeric|digits_between:1,\$count"
 
         ]);
         \$:::modelInstance::: = :::upperCaseModelName:::::findOrFail(\$id);
@@ -353,17 +353,6 @@ class :::upperCaseModelName::: extends Model
        return \$this->hasMany('App\:::child:::');
    }
 
-   public static function :::parentInstance:::ValidationList()
-   {
-       \$:::parentInstances::: = :::parent:::::orderBy('id', 'asc')->pluck('id')->toArray();
-
-       \$:::parentInstances::: = implode(', ', \$:::parentInstances:::);
-
-       \$:::parentInstances::: = str_replace(' ', '', \$:::parentInstances:::);
-
-       return \$:::parentInstances:::;
-
-   }
 }
 EOD;
 
