@@ -13,7 +13,7 @@ class MakeChildOf extends Command
         FormatsInput,
         BuildsTemplates,
         WritesViewFiles,
-        HasParentAndChild;
+        HasParentAndChildAndSlug;
     /**
      * The name and signature of the console command.
      *
@@ -24,6 +24,7 @@ class MakeChildOf extends Command
                            {ChildName}
                            {MasterPage}
                            {TemplateType}
+                           {Slug=false}
                            {IndexOnly=false}';
 
     /**
@@ -60,6 +61,8 @@ class MakeChildOf extends Command
         // setup for crud
 
         $this->modelName = $this->formatModel($this->argument('ParentName'));
+
+        $this->slug = $this->argument('Slug');
 
         $this->setParentModelPath($this->modelName);
 

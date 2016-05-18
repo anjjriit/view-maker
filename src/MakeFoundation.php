@@ -13,7 +13,7 @@ class MakeFoundation extends Command
         FormatsInput,
         BuildsTemplates,
         WritesViewFiles,
-        HasParentAndChild;
+        HasParentAndChildAndSlug;
     /**
      * The name and signature of the console command.
      *
@@ -23,6 +23,7 @@ class MakeFoundation extends Command
                            {ModelName}
                            {MasterPage}
                            {TemplateType}
+                           {Slug=false}
                            {IndexOnly=false}';
 
     /**
@@ -55,6 +56,8 @@ class MakeFoundation extends Command
         // setup for crud
 
         $this->modelName = $this->formatModel($this->argument('ModelName'));
+
+        $this->slug = $this->argument('Slug');
 
 
 

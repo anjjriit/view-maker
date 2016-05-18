@@ -13,7 +13,7 @@ class MakeParentAndChild extends Command
         FormatsInput,
         BuildsTemplates,
         WritesViewFiles,
-        HasParentAndChild;
+        HasParentAndChildAndSlug;
     /**
      * The name and signature of the console command.
      *
@@ -24,6 +24,7 @@ class MakeParentAndChild extends Command
                            {ChildName}
                            {MasterPage}
                            {TemplateType}
+                           {Slug=false}
                            {IndexOnly=false}';
 
     /**
@@ -58,6 +59,8 @@ class MakeParentAndChild extends Command
         // setup for crud
 
         $this->modelName = $this->formatModel($this->argument('ParentName'));
+
+        $this->slug = $this->argument('Slug');
 
 
 

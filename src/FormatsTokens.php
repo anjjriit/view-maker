@@ -9,6 +9,7 @@ class FormatsTokens
     public $masterPage;
     public $parent;
     public $child;
+    public $slug;
 
     public function __construct(array $tokens)
     {
@@ -41,6 +42,7 @@ class FormatsTokens
         $parent_id = strtolower(snake_case($this->parent)) . '_id';
         $parentFieldName = strtolower(snake_case($this->parent)) . '_name';
         $child = $this->child;
+        $slug = $this->slug;
 
         //create token array using compact
 
@@ -63,7 +65,8 @@ class FormatsTokens
                           'parentInstances',
                           'parent_id',
                           'parentFieldName',
-                          'child');
+                          'child',
+                          'slug');
 
         $content = $this->insertTokensInContent($content, $tokens);
 

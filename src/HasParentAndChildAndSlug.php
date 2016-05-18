@@ -2,8 +2,16 @@
 
 namespace Evercode1\ViewMaker;
 
-trait HasParentAndChild
+trait HasParentAndChildAndSlug
 {
+
+    private function hasSlug(array $tokens)
+    {
+
+        return $tokens['slug'] == 'slug';
+
+
+    }
 
     /**
      * @param array $tokens

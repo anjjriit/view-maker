@@ -48,50 +48,49 @@ trait BuildsTemplates
 
             case 'create' :
 
-                if ($this->hasChild($tokens)){
+                if ($this->hasChild($tokens) && $this->isViewChild($tokens)){
 
-                   if ($this->isViewChild($tokens)){
 
                        return $commonTemplateBuilder->commonChildCreateTemplate();
+                       break;
 
-                   }
 
                 }
 
 
                 return $commonTemplateBuilder->commonCreateTemplate();
+                break;
 
             case 'edit' :
 
-                if ($this->hasChild($tokens)){
+                if ($this->hasChild($tokens) && $this->isViewChild($tokens)){
 
-                    if ($this->isViewChild($tokens)){
 
                         return $commonTemplateBuilder->commonChildEditTemplate();
+                        break;
 
-                    }
 
                 }
 
                 return $commonTemplateBuilder->commonEditTemplate();
+                break;
 
             case 'show' :
 
-                if ($this->hasChild($tokens)){
-
-                    if ($this->isViewChild($tokens)){
+                if ($this->hasChild($tokens) && $this->isViewChild($tokens)){
 
                         return $commonTemplateBuilder->commonChildShowTemplate();
-
-                    }
+                        break;
 
                 }
 
                 return $commonTemplateBuilder->commonShowTemplate();
+                break;
 
             case 'index' :
 
                 return $basicTemplateBuilder->basicIndexTemplate();
+                break;
 
             default:
 
@@ -113,77 +112,101 @@ trait BuildsTemplates
 
             case 'create' :
 
-                if ($this->hasChild($tokens)){
+                if ($this->hasChild($tokens) && $this->isViewChild($tokens)){
 
-                    if ($this->isViewChild($tokens)){
 
                         return $commonTemplateBuilder->commonChildCreateTemplate();
+                        break;
 
-                    }
 
                 }
 
                 return $commonTemplateBuilder->commonCreateTemplate();
+                break;
 
             case 'edit' :
 
-                if ($this->hasChild($tokens)){
+                if ($this->hasChild($tokens) && $this->isViewChild($tokens)){
 
-                    if ($this->isViewChild($tokens)){
 
                         return $commonTemplateBuilder->commonChildEditTemplate();
+                        break;
 
-                    }
 
                 }
 
                 return $commonTemplateBuilder->commonEditTemplate();
+                break;
 
             case 'show' :
 
-                if ($this->hasChild($tokens)){
+                if ($this->hasChild($tokens) && $this->isViewChild($tokens)){
 
-                    if ($this->isViewChild($tokens)){
 
                         return $commonTemplateBuilder->commonChildShowTemplate();
+                        break;
 
-                    }
 
                 }
 
+
                 return $commonTemplateBuilder->commonShowTemplate();
+                break;
 
             case 'index' :
 
                 return $dtTemplateBuilder->dtIndexTemplate();
+                break;
 
             case 'datatable' :
 
-                if ($this->hasChild($tokens)){
+                if ($this->hasChild($tokens)  && $this->isViewChild($tokens)){
 
-                    if ($this->isViewChild($tokens)){
+                        if ($this->hasSlug($tokens)){
+
+                            return $dtTemplateBuilder->dtChildDatatableSlugTemplate();
+                            break;
+                        }
 
                         return $dtTemplateBuilder->dtChildDatatableTemplate();
+                        break;
 
-                    }
+
+                }
+
+                if ($this->hasSlug($tokens)){
+
+                    return $dtTemplateBuilder->dtDatatableSlugTemplate();
+                    break;
 
                 }
 
                 return $dtTemplateBuilder->dtDatatableTemplate();
+                break;
 
             case 'datatable-script' :
 
-                if ($this->hasChild($tokens)){
+                if ($this->hasChild($tokens) && $this->isViewChild($tokens)){
 
-                    if ($this->isViewChild($tokens)){
+                        if ($this->hasSlug($tokens)){
+
+                            return $dtTemplateBuilder->dtChildDatatableScriptSlugTemplate();
+                            break;
+                        }
 
                         return $dtTemplateBuilder->dtChildDatatableScriptTemplate();
-
-                    }
+                        break;
 
                 }
 
+                if ($this->hasSlug($tokens)){
+
+                    return $dtTemplateBuilder->dtDatatableScriptSlugTemplate();
+                    break;
+                }
+
                 return $dtTemplateBuilder->dtDatatableScriptTemplate();
+                break;
 
             default:
 
@@ -236,13 +259,9 @@ trait BuildsTemplates
 
             case 'create' :
 
-                if ($this->hasChild($tokens)){
-
-                    if ($this->isViewChild($tokens)){
+                if ($this->hasChild($tokens) && $this->isViewChild($tokens)){
 
                         return $commonTemplateBuilder->commonChildCreateTemplate();
-
-                    }
 
                 }
 
@@ -250,13 +269,9 @@ trait BuildsTemplates
 
             case 'edit' :
 
-                if ($this->hasChild($tokens)){
-
-                    if ($this->isViewChild($tokens)){
+                if ($this->hasChild($tokens) && $this->isViewChild($tokens)){
 
                         return $commonTemplateBuilder->commonChildEditTemplate();
-
-                    }
 
                 }
 
@@ -264,13 +279,9 @@ trait BuildsTemplates
 
             case 'show' :
 
-                if ($this->hasChild($tokens)){
-
-                    if ($this->isViewChild($tokens)){
+                if ($this->hasChild($tokens) && $this->isViewChild($tokens)){
 
                         return $commonTemplateBuilder->commonChildShowTemplate();
-
-                    }
 
                 }
 
@@ -278,14 +289,20 @@ trait BuildsTemplates
 
             case 'index' :
 
-                if ($this->hasChild($tokens)){
+                if ($this->hasChild($tokens) && $this->isViewChild($tokens)){
 
-                    if ($this->isViewChild($tokens)){
+                        if ($this->hasSlug($tokens)){
+
+                            return $vueTemplateBuilder->vueChildIndexSlugTemplate();
+                        }
 
                         return $vueTemplateBuilder->vueChildIndexTemplate();
 
-                    }
+                }
 
+                if ($this->hasSlug($tokens)){
+
+                    return $vueTemplateBuilder->vueIndexSlugTemplate();
                 }
 
                 return $vueTemplateBuilder->vueIndexTemplate();

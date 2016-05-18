@@ -7,12 +7,14 @@ class CrudTokens
     public $model;
     public $parent;
     public $child;
+    public $slug;
 
 
     public function __construct(array $tokens)
     {
 
         $this->model = $tokens['model'];
+        $this->slug = $tokens['slug'];
 
         if (isset($tokens['parent'])){
 
@@ -90,6 +92,8 @@ class CrudTokens
 
         $model = $this->model;
 
+        $slug = $this->slug;
+
         //create token array using compact
 
         $tokens = compact('upperCaseModelName',
@@ -120,7 +124,8 @@ class CrudTokens
                           'childMigrationModel',
                           'child',
                           'childRelation',
-                          'model');
+                          'model',
+                          'slug');
 
 
         return $tokens;

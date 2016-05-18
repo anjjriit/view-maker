@@ -18,6 +18,12 @@ trait ConfiguresCrudInput
 
         $model['model'] = $this->modelName;
 
+        if(isset($this->slug)){
+
+            $model['slug'] = $this->slug;
+        }
+
+
         $tokenBuilder = new CrudTokens($model);
 
         $this->crudTokens = $tokenBuilder->formatTokens();

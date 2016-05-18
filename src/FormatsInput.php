@@ -35,6 +35,8 @@ trait FormatsInput
 
     private $child;
 
+    private $slug;
+
     private $validTemplateTypes = ['plain',
                                    'basic',
                                    'dt',
@@ -45,6 +47,8 @@ trait FormatsInput
         // sets inputs from the artisan command line arguments
 
         $this->inputs = $this->argument();
+
+        $this->slug = $this->argument('Slug');
 
         $this->theModel = str_singular($this->inputs['ModelName']);
 
@@ -211,6 +215,7 @@ trait FormatsInput
         $this->tokens['folderName'] = $this->folderName;
         $this->tokens['modelName'] = $this->theModel;
         $this->tokens['masterPage'] = $this->masterPage;
+        $this->tokens['slug'] = $this->slug;
 
         if ($this->parent){
 
