@@ -103,7 +103,7 @@ This command operates the same way as the **[make:foundation](#makefoundation)**
 
 In the views, it will display the relationship and in the create and edit views of the child, you will get the related parent, so when you create a child record, you can associate it to a parent record.  Use the optional slug parameter if you want to have slugs on the show pages.
 
-The **[make:child-of](#makechild-of)** command is similar to the **[make:parent-child](#makeparent-child)** command, but only creates the child:
+The **[make:child-of](#makechild-of)** command is similar to the **[make:parent-child](#makeparent-child)** command, but only creates the child.
 
 The **[make:child-of](#makechild-of)** will create all crud and view files for both a parent and a child, including. 
 
