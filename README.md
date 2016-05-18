@@ -26,15 +26,7 @@ Evercode1\ViewMaker\ViewMakerServiceProvider::class,
 
 ## Summary
 
-ViewMaker will install 4 artisan commands, **[make:views](#makeviews)**, **[make:master](#makemaster)**, **[make:crud](#makecrud)**, and **[make:foundation](#makefoundation)**.
-
-Use **[make:views](#makeviews)** to create views, including:
-
-* appropriately-named view folder
-* index
-* create
-* edit
-* show
+ViewMaker will install 6 artisan commands, **[make:master](#makemaster)**,  **[make:foundation](#makefoundation)**, **[make:crud](#makecrud)**, **[make:views](#makeviews)**, **[make:parent-child](#makeparent-child)**, and **[make:child-of](#makechild-of)**.
 
 Use **[make:master](#makemaster)** to create a master page, which includes:
 
@@ -46,20 +38,6 @@ Use **[make:master](#makemaster)** to create a master page, which includes:
 * bottom partial
 * nav partial
 * shim partial
-
-Use **[make:crud](#makecrud)** to create the files necessary to display a view:
-
-* model
-* controller
-* api controller (if it does not yet exist)
-* migration
-* test
-
-The **[make:crud](#makecrud)** command also appends to the following files:
-
-* routes.php
-* ModelFactory.php
-* ApiController (if it already exists)
 
 Use **[make:foundation](#makefoundation)** to create all files for crud and views, including:
 
@@ -79,6 +57,28 @@ The **[make:foundation](#makefoundation)** command also appends to the following
 * routes.php
 * ModelFactory.php
 * ApiController (if it already exists)
+
+Use **[make:crud](#makecrud)** to create the files necessary to display a view:
+
+* model
+* controller
+* api controller (if it does not yet exist)
+* migration
+* test
+
+The **[make:crud](#makecrud)** command also appends to the following files:
+
+* routes.php
+* ModelFactory.php
+* ApiController (if it already exists)
+
+Use **[make:views](#makeviews)** to create views, including:
+
+* appropriately-named view folder
+* index
+* create
+* edit
+* show
 
 The **[make:parent-child](#makeparent-child)** will create all crud and view files for both a parent and a child, including. 
 
@@ -1020,5 +1020,3 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [link-packagist]: https://packagist.org/packages/evercode1/view-maker
 [link-downloads]: https://packagist.org/packages/evercode1/view-maker/stats
 [link-author]: https://github.com/evercode1
-
-
