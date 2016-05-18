@@ -118,7 +118,7 @@ The **[make:child-of](#makechild-of)** will create all crud and view files for b
 * edit view
 * show view
 
-The  **[make:child-of](#makechild-of)**command also appends to the following files:
+The  **[make:child-of](#makechild-of)** command also appends to the following files:
 
 * routes.php
 * ModelFactory.php
