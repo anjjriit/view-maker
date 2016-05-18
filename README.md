@@ -93,7 +93,7 @@ The **[make:parent-child](#makeparent-child)** will create all crud and view fil
 * edit view
 * show view
 
-The  **[make:parent-child](#makeparent-child)**command also appends to the following files:
+The  **[make:parent-child](#makeparent-child)** command also appends to the following files:
 
 * routes.php
 * ModelFactory.php
@@ -157,7 +157,7 @@ All of these [requirements](#requirements-for-views) are listed in detail below,
 
 To play around with ViewMaker, and to learn quickly, we recommend installing a fresh build of Laravel with a working database connection.  Then run the **[make:master](#makemaster)**, which will provide your layouts folder, master page and asset dependencies.
 
-After you have your master page and dependencies, follow the **[make:foundation Workflow Example](#makefoundation-workflow-example) in the next section.
+After you have your master page and dependencies, follow the **[make:foundation Workflow Example](#makefoundation-workflow-example)** in the next section.
 
 ## make:foundation Workflow Example
 
