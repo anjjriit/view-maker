@@ -257,53 +257,6 @@ As you can see the workflow with the **[make:foundation](#makefoundation)** comm
 
 Also see the [tip for use with make:auth](#tip-for-use-with-makeauth) to see how you can use artisan's native make:auth command to set up all your auth views to extend the master page you have created with [make:master](#makemaster).
 
-## make:views
-
-The make views lets you quickly scaffold views for create, show, edit, and index, based on your input.
-
-The make:views command has  the following arguments:
-
-```
-php artisan make:views {ModelName} {MasterPageName} {TemplateType} {Slug=false} {IndexOnly=false}
-```
-The last argument is optional and indicates that you only want the index view in the view folder. 
-By default it is false, which means it's an optional argument, so if you leave it off
-entirely, you get all the views.  If you do wish to use that option, you must enter
-the word 'index' as your last argument, no quotes.
-
-Before running make:views, at a minimum, you should already have your model, route and controller created.
-
-As an alternative to doing that manually, you can use **ViewMaker's** **[make:crud](#makecrud)** to do it for you.  Or you could use **[make:foundation](#makefoundation)** to create everything all at once.  If you use **[make:foundation](#makefoundation)**, you do not need to run make:views, since the views will be included in the foundation.
-
-We recommend using our **[make:master](#makemaster)** command to make your master page.  In any event before you run make:views, you need to have your master page ready. Also see [requirements for views](#requirements-for-views).
-
-So for example, if you had a model named Widget, and you  had a master page
-named master.blade.php, you may do one of the following:
-
-```
-php artisan make:views Widget master plain
-```
-
-```
-php artisan make:views Widget master basic
-```
-
-```
-php artisan make:views Widget master dt
-```
-
-```
-php artisan make:views Widget master vue
-```
-
-In the examples above, we tell it the model name, 'Widget', the master page name 'master', and the template type.  Since we didn’t want the slug or index only options, we can simply leave those off the command, they will default to false.
-
-The plain template creates simple stubs, the basic template gives you a
-couple of working forms and the dt and vue templates give you a working data
-grid implementation with search and column sorts. 
-
-The templates are described in detail in **[Template Types](#template-types)** section.  Also see the **[Rquirements For Views](#requirements-for-views)** section to make sure you have what you need before running this.  And finally, check out the conventions section for naming tips on models and instance variables, so you know what to expect there.
-
 ## make:master
 
 ViewMaker's make:master command creates a layouts folder and places a master page and related files in it.
@@ -388,6 +341,53 @@ It also appends to the following files:
 Since we specified ‘slug’, it will include the code necessary to have slugs on the show view.
 
 You could then run the **[make:views](#makeviews)** command and have it functional, once you've migrated and seeded data or created a few records.  Note that the unit test included with make:crud will fail if you select 'plain' or 'basic' as your template type because those templates don't output the record name to the index page.  In that case modify the test as you see fit.
+
+## make:views
+
+The make views lets you quickly scaffold views for create, show, edit, and index, based on your input.
+
+The make:views command has  the following arguments:
+
+```
+php artisan make:views {ModelName} {MasterPageName} {TemplateType} {Slug=false} {IndexOnly=false}
+```
+The last argument is optional and indicates that you only want the index view in the view folder. 
+By default it is false, which means it's an optional argument, so if you leave it off
+entirely, you get all the views.  If you do wish to use that option, you must enter
+the word 'index' as your last argument, no quotes.
+
+Before running make:views, at a minimum, you should already have your model, route and controller created.
+
+As an alternative to doing that manually, you can use **ViewMaker's** **[make:crud](#makecrud)** to do it for you.  Or you could use **[make:foundation](#makefoundation)** to create everything all at once.  If you use **[make:foundation](#makefoundation)**, you do not need to run make:views, since the views will be included in the foundation.
+
+We recommend using our **[make:master](#makemaster)** command to make your master page.  In any event before you run make:views, you need to have your master page ready. Also see [requirements for views](#requirements-for-views).
+
+So for example, if you had a model named Widget, and you  had a master page
+named master.blade.php, you may do one of the following:
+
+```
+php artisan make:views Widget master plain
+```
+
+```
+php artisan make:views Widget master basic
+```
+
+```
+php artisan make:views Widget master dt
+```
+
+```
+php artisan make:views Widget master vue
+```
+
+In the examples above, we tell it the model name, 'Widget', the master page name 'master', and the template type.  Since we didn’t want the slug or index only options, we can simply leave those off the command, they will default to false.
+
+The plain template creates simple stubs, the basic template gives you a
+couple of working forms and the dt and vue templates give you a working data
+grid implementation with search and column sorts. 
+
+The templates are described in detail in **[Template Types](#template-types)** section.  Also see the **[Rquirements For Views](#requirements-for-views)** section to make sure you have what you need before running this.  And finally, check out the conventions section for naming tips on models and instance variables, so you know what to expect there.
 
 ## make:foundation
 
