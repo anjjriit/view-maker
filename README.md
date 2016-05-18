@@ -105,7 +105,7 @@ In the views, it will display the relationship and in the create and edit views 
 
 The **[make:child-of](#makechild-of)** command is similar to the **[make:parent-child](#makeparent-child)** command, but only creates the child:
 
-The **[make:parent-child](#makeparent-child)** will create all crud and view files for both a parent and a child, including. 
+The **[make:child-of](#makechild-of)** will create all crud and view files for both a parent and a child, including. 
 
 * model
 * controller
