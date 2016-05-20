@@ -6,7 +6,9 @@
 
 **ViewMaker** is for use with the Laravel PHP framework (5.2 and up) Artisan command line tool.
 
-ViewMaker adds 10 new artisan commands, providing ready-made templates for CRUD generation, Views and Datagrids, with ajax-powered search, column sorts and pagination.   You can create and test a foundation of code in under a minute.
+ViewMaker adds 10 new artisan commands, providing ready-made templates for CRUD generation, Views and Datagrids, with ajax-powered search, column sorts and pagination.   You can create and test a foundation of code with crud and views in under a minute.
+
+Help **[Support ViewMaker](##support-viewmaker)**.  
 
 ## Install ##
 
@@ -404,7 +406,7 @@ The plain template creates simple stubs, the basic template gives you a
 couple of working forms and the dt and vue templates give you a working data
 grid implementation with search and column sorts. 
 
-The templates are described in detail in **[Template Types](#template-types)** section.  Also see the **[Rquirements For Views](#requirements-for-views)** section to make sure you have what you need before running this.  And finally, check out the conventions section for naming tips on models and instance variables, so you know what to expect there.
+The templates are described in detail in **[Template Types](#template-types)** section.  Also see the **[Requirements For Views](#requirements-for-views)** section to make sure you have what you need before running this.  And finally, check out the conventions section for naming tips on models and instance variables, so you know what to expect there.
 
 ## make:foundation
 
@@ -549,6 +551,7 @@ remove:crud will remove the following:
 * test
 * factory method
 * routes
+
 ## remove:views
 
 This command will remove all of the view files for the given model:
@@ -1084,7 +1087,7 @@ So if you have situation like that or if you use a different convention, it’s 
 Also note that this convention is only for the initial field supplied with the template. Any fields that you add to your models and tables are completely at your discretion, since you will have to add those yourself anyway.
 
 
-## Conclusion
+## Support ViewMaker
 
 I hope you enjoy this plugin and find it useful.  I don’t have a donate button, but If you would like
 to support my work and learn more about Laravel, you can do so by buying one of
@@ -1122,4 +1125,4 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 [link-packagist]: https://packagist.org/packages/evercode1/view-maker
 [link-downloads]: https://packagist.org/packages/evercode1/view-maker/stats
-[link-author]: https://github.com/evercode
+[link-author]: https://github.com/evercode1
