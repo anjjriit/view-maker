@@ -6,7 +6,7 @@
 
 **ViewMaker** is for use with the Laravel PHP framework (5.2 and up) Artisan command line tool.
 
-ViewMaker adds 6 new artisan commands, providing ready-made templates for CRUD generation, Views and Datagrids, with ajax-powered search, column sorts and pagination.   You can create and test a foundation of code in under a minute.
+ViewMaker adds 10 new artisan commands, providing ready-made templates for CRUD generation, Views and Datagrids, with ajax-powered search, column sorts and pagination.   You can create and test a foundation of code in under a minute.
 
 ## Install ##
 
@@ -26,7 +26,24 @@ Evercode1\ViewMaker\ViewMakerServiceProvider::class,
 
 ## Summary
 
-ViewMaker will install 6 artisan commands, **[make:master](#makemaster)**,  **[make:foundation](#makefoundation)**, **[make:crud](#makecrud)**, **[make:views](#makeviews)**, **[make:parent-child](#makeparent-child)**, and **[make:child-of](#makechild-of)**.
+ViewMaker will install 10 artisan commands.
+
+6 make commands:
+
+* **[make:master](#makemaster)**
+* **[make:foundation](#makefoundation)**
+* **[make:crud](#makecrud)**
+* **[make:views](#makeviews)**
+* **[make:parent-child](#makeparent-child)**
+* **[make:child-of](#makechild-of)**
+
+
+4 remove commands:
+
+* **[remove:foundation](#removefoundation)**
+* **[remove:crud](#removecrud)**
+* **[remove:views](#removeviews)**
+* **[remove:child-of](#removechild-of)**
 
 Use **[make:master](#makemaster)** to create a master page, which includes:
 
@@ -488,6 +505,92 @@ php artisan make:child-of AutoMaker AutoPart master vue
 ```
 
 This would update the parent model, in this case AutoMaker, with the has many relationship and also create a foundation for AutoPart, which will include the belongs to relationship to AutoMaker.
+
+## Remove Commands
+
+## remove:foundation
+
+```
+php artisan remove:foundation {ModelName}
+```
+
+This command will remove all of the foundation files for the given model:
+
+remove:foundation will remove the following:
+
+* model
+* controller
+* api controller methods
+* migration
+* test
+* appropriately-named view folder
+* index view
+* create view
+* edit view
+* show view
+* factory method
+* routes
+
+
+## remove:crud
+
+This command will remove all of the crud files for the given model:
+
+```
+php artisan remove:crud {ModelName}
+```
+
+remove:crud will remove the following:
+
+* model
+* controller
+* api controller methods
+* migration
+* test
+* factory method
+* routes
+## remove:views
+
+This command will remove all of the view files for the given model:
+
+```
+php artisan remove:views {ModelName}
+```
+
+Remove:views  will remove the following:
+
+* appropriately-named view folder
+* index view
+* create view
+* edit view
+* show view
+
+## remove:child-of
+
+This command will remove all of the foundation files for the given parent and child:
+
+```
+php artisan remove:child-of {ParentName} {ChildName}
+```
+
+remove:child-of will remove the following:
+
+* child model
+* child controller
+* child api controller methods
+* child migration
+* child test
+* child view folder
+* child index view
+* child create view
+* child edit view
+* child show view
+* child factory method
+* child routes
+* parent model relationship
+
+
+
 
 ## Requirements For Views
 
@@ -1019,4 +1122,4 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 [link-packagist]: https://packagist.org/packages/evercode1/view-maker
 [link-downloads]: https://packagist.org/packages/evercode1/view-maker/stats
-[link-author]: https://github.com/evercode1
+[link-author]: https://github.com/evercode
