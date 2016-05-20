@@ -8,7 +8,7 @@
 
 ViewMaker adds 10 new artisan commands, providing ready-made templates for CRUD generation, Views and Datagrids, with ajax-powered search, column sorts and pagination.   You can create and test a foundation of code with crud and views in under a minute.
 
-Help **[Support ViewMaker](##support-viewmaker)**.  
+Help **[Support ViewMaker](#support-viewmaker)**.  
 
 ## Install ##
 
