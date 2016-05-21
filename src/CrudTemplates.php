@@ -981,7 +981,7 @@ EOD;
     ];
 });
 
-// End :::upperCaseModelName::: Routes
+// End :::upperCaseModelName::: Factory
 EOD;
 
         return $this->tokenBuilder->insertTokensIntoContent($content);
@@ -1003,7 +1003,7 @@ EOD;
     ];
 });
 
-// End :::upperCaseModelName::: Routes
+// End :::upperCaseModelName::: Factory
 EOD;
 
         return $this->tokenBuilder->insertTokensIntoContent($content);
