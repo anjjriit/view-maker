@@ -513,7 +513,7 @@ You would get the following on your index view:
 
 You can use the select for type to switch to a bar graph:
 
-![](chart-line.png)
+![](chart-bar.png)
 
 If you have run the factory method to seed data, you should change some of the create dates on the records if you want to try the different periods that the chart comes with.
 
