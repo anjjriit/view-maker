@@ -222,7 +222,10 @@ EOD;
     {
 
         $content = <<<EOD
+<!-- jquery required before -->
+<!-- Begin Datatables CDN Call -->
 <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+<!-- End Datatables CDN Call -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
 <script>
     \$(document).ready( function () {
@@ -271,7 +274,10 @@ EOD;
     {
 
         $content = <<<EOD
+<!-- jQuery required before -->
+<!-- Begin Datatables CDN Call -->
 <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+<!-- End Datatables CDN Call -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
 <script>
     \$(document).ready( function () {

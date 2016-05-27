@@ -22,6 +22,8 @@ class VueTemplates
         $content = <<<EOD
 @extends('layouts.:::masterPage:::')
 @section('css')
+    <!-- Begin Css For Vue -->
+    <!--you should move vue style to a permanent home -->
     <style>
         [v-cloak] {
             display:none;
@@ -55,6 +57,7 @@ class VueTemplates
             cursor: pointer;
         }
     </style>
+    <!-- End Css For Vue -->
 @endsection
 
 @section('content')
@@ -142,7 +145,7 @@ class VueTemplates
 
     </script>
 
-    <!-- root element -->
+    <!-- component tag -->
     <div id=":::modelName:::">
         <:::gridName:::
                 :data="gridData"
@@ -171,8 +174,11 @@ class VueTemplates
 
 
     <!-- jquery required before -->
+    <!-- Begin Vue CDN Call -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.21/vue.min.js"></script>
+    <!-- End Vue CDN Call -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js"></script>
+    <!-- End Grid Requirement -->
 
     <script>
 
@@ -192,7 +198,8 @@ class VueTemplates
             return month + "/" + day + "/" + d.year();
         });
 
-        // register the grid component
+        <!-- register the grid component -->
+
         Vue.component(':::gridName:::', {
             template: '#grid-template',
             props: {
@@ -347,7 +354,7 @@ class VueTemplates
             }
         });
 
-        // bootstrap the vue instance
+        <!-- bootstrap the vue instance -->
         var :::modelName::: = new Vue({
             el: '#:::modelName:::',
             data: {
@@ -398,6 +405,7 @@ class VueTemplates
             }
         });
     </script>
+    <!-- Chart Script Placeholder -->
 @endsection
 EOD;
 
@@ -411,6 +419,8 @@ EOD;
         $content = <<<EOD
 @extends('layouts.:::masterPage:::')
 @section('css')
+    <!-- Begin Css For Vue -->
+    <!--you should move vue style to a permanent home -->
     <style>
         [v-cloak] {
             display:none;
@@ -444,6 +454,7 @@ EOD;
             cursor: pointer;
         }
     </style>
+    <!-- End Css For Vue -->
 @endsection
 
 @section('content')
@@ -531,7 +542,7 @@ EOD;
 
     </script>
 
-    <!-- root element -->
+    <!-- component tag -->
     <div id=":::modelName:::">
         <:::gridName:::
                 :data="gridData"
@@ -560,9 +571,11 @@ EOD;
 
 
     <!-- jquery required before -->
+    <!-- Begin Vue CDN Call -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.21/vue.min.js"></script>
+    <!-- End Vue CDN Call -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js"></script>
-
+    <!-- End Grid Requirement -->
     <script>
 
         $.ajaxSetup({
@@ -581,7 +594,8 @@ EOD;
             return month + "/" + day + "/" + d.year();
         });
 
-        // register the grid component
+        <!-- register the grid component -->
+
         Vue.component(':::gridName:::', {
             template: '#grid-template',
             props: {
@@ -736,7 +750,7 @@ EOD;
             }
         });
 
-        // bootstrap the vue instance
+        <!-- bootstrap the vue instance -->
         var :::modelName::: = new Vue({
             el: '#:::modelName:::',
             data: {
@@ -787,6 +801,7 @@ EOD;
             }
         });
     </script>
+    <!-- Chart Script Placeholder -->
 @endsection
 EOD;
 
@@ -800,6 +815,8 @@ EOD;
         $content = <<<EOD
 @extends('layouts.:::masterPage:::')
 @section('css')
+    <!-- Begin Css For Vue -->
+    <!--you should move vue style to a permanent home -->
     <style>
         [v-cloak] {
             display:none;
@@ -833,6 +850,7 @@ EOD;
             cursor: pointer;
         }
     </style>
+    <!-- End Css For Vue -->
 @endsection
 
 @section('content')
@@ -921,7 +939,7 @@ EOD;
 
     </script>
 
-    <!-- root element -->
+    <!-- component tag -->
     <div id=":::modelName:::">
         <:::gridName:::
                 :data="gridData"
@@ -950,9 +968,11 @@ EOD;
 
 
     <!-- jquery required before -->
+    <!-- Begin Vue CDN Call -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.21/vue.min.js"></script>
+    <!-- End Vue CDN Call -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js"></script>
-
+    <!-- End Grid Requirement -->
     <script>
 
         $.ajaxSetup({
@@ -971,7 +991,8 @@ EOD;
             return month + "/" + day + "/" + d.year();
         });
 
-        // register the grid component
+        <!-- register the grid component -->
+
         Vue.component(':::gridName:::', {
             template: '#grid-template',
             props: {
@@ -1126,7 +1147,7 @@ EOD;
             }
         });
 
-        // bootstrap the vue instance
+        <!-- bootstrap the vue instance -->
         var :::modelName::: = new Vue({
             el: '#:::modelName:::',
             data: {
@@ -1177,6 +1198,7 @@ EOD;
             }
         });
     </script>
+    <!-- Chart Script Placeholder -->
 @endsection
 EOD;
 
@@ -1190,6 +1212,8 @@ EOD;
         $content = <<<EOD
 @extends('layouts.:::masterPage:::')
 @section('css')
+    <!-- Begin Css For Vue -->
+    <!--you should move vue style to a permanent home -->
     <style>
         [v-cloak] {
             display:none;
@@ -1223,6 +1247,7 @@ EOD;
             cursor: pointer;
         }
     </style>
+    <!-- End Css For Vue -->
 @endsection
 
 @section('content')
@@ -1311,7 +1336,7 @@ EOD;
 
     </script>
 
-    <!-- root element -->
+    <!-- component tag -->
     <div id=":::modelName:::">
         <:::gridName:::
                 :data="gridData"
@@ -1340,8 +1365,11 @@ EOD;
 
 
     <!-- jquery required before -->
+    <!-- Begin Vue CDN Call -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.21/vue.min.js"></script>
+    <!-- End Vue CDN Call -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js"></script>
+    <!-- End Grid Requirement -->
 
     <script>
 
@@ -1361,7 +1389,8 @@ EOD;
             return month + "/" + day + "/" + d.year();
         });
 
-        // register the grid component
+        <!-- register the grid component -->
+
         Vue.component(':::gridName:::', {
             template: '#grid-template',
             props: {
@@ -1516,7 +1545,7 @@ EOD;
             }
         });
 
-        // bootstrap the vue instance
+        <!-- bootstrap the vue instance -->
         var :::modelName::: = new Vue({
             el: '#:::modelName:::',
             data: {
@@ -1567,6 +1596,7 @@ EOD;
             }
         });
     </script>
+    <!-- Chart Script Placeholder -->
 @endsection
 EOD;
 

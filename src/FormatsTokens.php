@@ -13,8 +13,6 @@ class FormatsTokens
 
     public function __construct(array $tokens)
     {
-
-
         $this->setTokens($tokens);
         $this->modelName = camel_case($this->modelName);
 
@@ -23,25 +21,45 @@ class FormatsTokens
     public function formatTokens($content)
     {
         $upperCaseModelName = ucfirst($this->modelName);
+
         $field_name = snake_case($this->modelName) . '_name';
+
         $modelId = $this->formatInstanceVariable() . '->id';
+
         $modelAttribute = $this->formatInstanceVariable() . '->' . $field_name;
+
         $createdAt = $this->formatInstanceVariable() . '->created_at';
+
         $modelRoute = '/' . $this->folderName;
+
         $dtTableName = snake_case($this->modelName) . '_table';
+
         $masterPage = $this->masterPage;
+
         $modelName = $this->modelName;
+
         $modelsUpperCase = ucwords(str_plural($this->modelName));
+
         $folderName = $this->folderName;
+
         $gridName = $this->formatVueGridName() . '-grid';
+
         $endGridName = '/' . $this->formatVueGridName() . '-grid';
+
         $vueApiRoute = 'api/' . $this->folderName . '-vue';
+
         $parent = $this->parent;
+
         $parentInstance = $this->formatParentInstanceVariable($this->parent);
+
         $parentInstances = $this->formatParents($this->parent);
+
         $parent_id = strtolower(snake_case($this->parent)) . '_id';
+
         $parentFieldName = strtolower(snake_case($this->parent)) . '_name';
+
         $child = $this->child;
+
         $slug = $this->slug;
 
         //create token array using compact

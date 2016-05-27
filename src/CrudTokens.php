@@ -14,7 +14,11 @@ class CrudTokens
     {
 
         $this->model = $tokens['model'];
-        $this->slug = $tokens['slug'];
+
+        if (isset($tokens['slug'])) {
+
+            $this->slug = $tokens['slug'];
+        }
 
         if (isset($tokens['parent'])){
 
@@ -57,6 +61,10 @@ class CrudTokens
         $apiRoute = 'api/' . $modelPath;
 
         $vueApiRoute = 'api/' . $modelPath . '-vue';
+
+        $chartApiRoute = 'api/' . $modelPath . '-chart';
+
+        $chartApiControllerMethod = $this->formatChartApiControllerMethod($this->model);
 
         $apiControllerMethod = $this->formatApiControllerMethod($this->model);
 
@@ -108,6 +116,8 @@ class CrudTokens
                           'useParent',
                           'apiRoute',
                           'vueApiRoute',
+                          'chartApiRoute',
+                          'chartApiControllerMethod',
                           'apiControllerMethod',
                           'vueApiControllerMethod',
                           'modelResults',
@@ -224,13 +234,11 @@ class CrudTokens
 
     }
 
-    private function formatParents($parent)
+    private function formatChartApiControllerMethod($model)
     {
+        $modelMethod = $this->formatInstanceName($model);
 
-        $parent = camel_case($parent);
-
-        return str_plural($parent);
-
+        return $modelMethod . 'ChartData';
 
     }
 

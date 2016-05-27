@@ -6,7 +6,7 @@
 
 **ViewMaker** is for use with the Laravel PHP framework (5.2 and up) Artisan command line tool.
 
-ViewMaker adds 10 new artisan commands, providing ready-made templates for CRUD generation, Views and Datagrids, with ajax-powered search, column sorts and pagination.   You can create and test a foundation of code with crud and views in under a minute.
+ViewMaker adds 12 new artisan commands, providing ready-made templates for CRUD generation, Views and Datagrids, with ajax-powered search, column sorts and pagination, and chart.js charts.   You can create and test a foundation of code with crud and views in under a minute.
 
 Help **[Support ViewMaker](#support-viewmaker)**.  
 
@@ -28,9 +28,9 @@ Evercode1\ViewMaker\ViewMakerServiceProvider::class,
 
 ## Summary
 
-ViewMaker will install 10 artisan commands.
+ViewMaker will install 12 artisan commands.
 
-6 make commands:
+7 make commands:
 
 * **[make:master](#makemaster)**
 * **[make:foundation](#makefoundation)**
@@ -38,16 +38,18 @@ ViewMaker will install 10 artisan commands.
 * **[make:views](#makeviews)**
 * **[make:parent-child](#makeparent-child)**
 * **[make:child-of](#makechild-of)**
+* **[make:chart](#makechart)**
 
 
-4 remove commands:
+5 remove commands:
 
 * **[remove:foundation](#removefoundation)**
 * **[remove:crud](#removecrud)**
 * **[remove:views](#removeviews)**
 * **[remove:child-of](#removechild-of)**
+* **[remove:chart](#removechart)**
 
-Use **[make:master](#makemaster)** to create a master page, which includes:
+Use **[make:master](#makemaster)** to create a master page, providing dependencies, which includes:
 
 * layouts folder
 * master (you give it your name)
@@ -57,6 +59,9 @@ Use **[make:master](#makemaster)** to create a master page, which includes:
 * bottom partial
 * nav partial
 * shim partial
+* jquery
+* bootstrap
+* font-awesome
 
 Use **[make:foundation](#makefoundation)** to create all files for crud and views, including:
 
@@ -144,6 +149,15 @@ The  **[make:child-of](#makechild-of)** command also appends to the following fi
 * ApiController (if it already exists) 
 
 Instead it modifies the parent model to include the relationship.  The slug option is available for this command as well.
+
+Use **[make:chart](#makechart)** to create a chart of your data, including:
+
+* chart.js chart on index
+* chart api route
+* chart api method
+* toggles line or bar type graph
+* Select period of time for graph display
+* vue.js implementation of chart.js
 
 ## Master Page Required For All Views
 
@@ -275,6 +289,10 @@ if you did not use our **[make:master](#makemaster)** command, you will see the 
 As you can see the workflow with the **[make:foundation](#makefoundation)** command is optimal, in under a minute you are able to stand up a working crud application.  You can then easily modify it to add the fields you want, and you have everything in place to support what you need, including all the basics like the model, migration, route and controller, as well as a unit test, api controller, and factory method for seeding.  The **[make:foundation](#makefoundation)** command provides you with a complete foundation to start from.
 
 Also see the [tip for use with make:auth](#tip-for-use-with-makeauth) to see how you can use artisan's native make:auth command to set up all your auth views to extend the master page you have created with [make:master](#makemaster).
+
+Once you have made a foundation, you can also easily add a chart.js chart to your index view by using our **[make:chart](#makechart)** command.  The result will add a chart that looks like:
+
+![](chart-line.png)
 
 ## make:master
 
@@ -463,6 +481,44 @@ Note that the test included with make:foundation will fail if you select 'plain'
 your template type or if you have because those templates don't output the record name to the index page. 
 
 Similarly, if you choose an index only option, there will be no create view and the test will fail. In those cases modify the test as you see fit.
+
+## make:chart
+
+The make:chart command is dependent on an index view that was build with the make:views or make: foundation command, so don’t run it if you are not using the other command to build your view.
+
+When you run the make:chart command, you get the following:
+
+* chart.js chart on index
+* chart api route
+* chart api method
+* toggles line or bar type graph
+* Select period of time for graph display
+* vue.js implementation of chart.js
+
+The signature of the command is as follows:
+
+```
+php artisan make:chart {ModelName}
+```
+
+Assuming you had a foundation built for a Widget model and you ran the following:
+
+```
+php artisan make:chart Widget
+```
+
+You would get the following on your index view:
+
+![](chart-line.png)
+
+You can use the select for type to switch to a bar graph:
+
+![](chart-line.png)
+
+If you have run the factory method to seed data, you should change some of the create dates on the records if you want to try the different periods that the chart comes with.
+
+
+
 
 ## make:parent-child
 
