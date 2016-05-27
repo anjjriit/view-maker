@@ -298,11 +298,16 @@ Once you have made a foundation, you can also easily add a chart.js chart to you
 
 ViewMaker's make:master command creates a layouts folder and places a master page and related files in it.
 
-You supply the command with two arguments, the name you want for your master page and the name of your
-application.  For example, if we wanted our master page to be called master and our app name was Demo:
+```
+php artisan make:master {MasterName} {AppName=Demo}
+```
+
+The second parameter is optional and will default to Demo.
+
+You supply the command with two arguments, the name you want for your master page and the name of your application.  For example, if we wanted our master page to be called master and our app name was MyProject:
 
 ```
-php artisan make:master master Demo
+php artisan make:master master MyProject
 ```
 
 This will create the following:
