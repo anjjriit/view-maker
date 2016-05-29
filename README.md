@@ -6,7 +6,7 @@
 
 **ViewMaker** is for use with the Laravel PHP framework (5.2 and up) Artisan command line tool.
 
-ViewMaker adds 12 new artisan commands, providing ready-made templates for CRUD generation, Views and Datagrids, with ajax-powered search, column sorts and pagination, and chart.js charts.   You can create and test a foundation of code with crud and views in under a minute.
+ViewMaker adds 12 new artisan commands, providing ready-made templates for CRUD generation, Views and Datagrids, with ajax-powered search, column sorts and pagination, and chart.js charts.   You can create, migrate and test a foundation of code with crud and views in under a minute.
 
 Help **[Support ViewMaker](#support-viewmaker)**.  
 
@@ -27,6 +27,26 @@ Evercode1\ViewMaker\ViewMakerServiceProvider::class,
 ## Usage
 
 ## Summary
+
+With the **[make:master](#makemaster)** command, instantly create a layouts folder and master page, with all Bootstrap and jquery dependencies abstracted to partials for easy customization and extensibility.
+
+![](layouts-folder.png)
+
+With the **[make:foundation](#makefoundation)** command, create a code foundation instantly and get a working datagrid, searchable, sortable, and paginated, written with vue.js:
+
+![](vue-index.png)
+
+You also get the create, edit, and show views, instantly.  Here is what the create view looks like:
+
+![basic create view](basic-create.png)
+
+Minimal bootstrap is used, so you can easily modify and extend as you wish.
+
+With the **[make:chart](#makechart)** command, you can easily add a chart.js chart, written with vue.js,  to the index page:
+
+![](chart-line.png)
+
+## ViewMaker Commands
 
 ViewMaker will install 12 artisan commands.
 
@@ -196,7 +216,7 @@ After you have your master page and dependencies, follow the **[make:foundation 
 
 To fully understand the power of the **[make:foundation](#makefoundation)** command, let's walk through a typical use case.  For this, we will assume that you have a master page named master.blade.php in your layouts folder, which is in your views folder.
 
-If you don't already have a master page, then we recommend using our **[make:master](#makemaster)** command, it will supply you with everything you need to create a foundation.  Just give your master page a name and supply an optional name for your app, like so:
+To create that we recommend using our **[make:master](#makemaster)** command, it will supply you with everything you need to create a foundation.  Just give your master page a name and supply an optional name for your app, like so:
 
 ```
 php artisan make:master master Demo
@@ -204,21 +224,21 @@ php artisan make:master master Demo
 
 That would create a layouts folder in your views directory and create a master page named master.blade.php.  This would include the dependencies you need for ajax calls and a working data grid.
 
-You can use your own master page, but before we start, let's double check to make sure we have what we need:
+You can use your own master page, but if you do that, let's double check to make sure we have what we need:
 
-In your masterpage or related partial, you should have your csfr token:
+In your masterpage or related meta partial, you should have your csfr token:
 
 ```
 <meta name="csrf-token" content="{!! csrf_token() !!}">
 ```
 
-Your masterpage or related partial should also have your css tag;
+Your masterpage or related css partial should also have your css tag;
 
 ```
 @yield('css')
 ```
 
-and in the scripts section of your masterpage or related partial, you should have your call to jquery, for example:
+and in the scripts section of your masterpage or related scripts partial, you should have your call to jquery, for example:
 
 ```
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -227,22 +247,21 @@ and in the scripts section of your masterpage or related partial, you should hav
 You need to make sure that is all there before running the command, otherwise
 the views containing ajax and grids will not function properly.
 
-Now we're ready to try the **[make:foundation](#makefoundation)** command.  Let's create a Widget foundation with the following command:
+Now we're ready to try the **[make:foundation](#makefoundation)** command.  We’ll use an example model named Widget.  So let's create a Widget foundation for our Widget model with the following command:
 
 ```
-php artisan make:foundation Widget master dt
+php artisan make:foundation Widget master vue
 ```
 
-Widget is the name of the model we want, master is the name of our master page, and dt is the type of template that we want.
+Obviously, Widget is the name of the model we want to create. This is followed by master, which is the name of our master page.  And that is followed by vue, which is the type of template that we want, which will get us a fully paginated, searchable, sortable datagrid, written in vue.js.
 
-After that runs, we're ready to migrate up to our db.  To keep it simple, let's just migrate what we have:
+After that runs, we're ready to migrate up to our db.  Before you migrate, this is where you can add additional columns for the DB, if you like.  To keep it simple, let's just migrate what we already have:
 
 ```
 php artisan migrate
 ```
 
-Everything should work at this point, but there is no data.  So let's run a unit test to add
-a single record by running from the command line:
+Everything should work at this point if you test the /widget route, but there is no data.  So let's run a unit test to add a single record by running from the command line:
 
 ```
 vendor/bin/phpunit
@@ -281,7 +300,7 @@ If you don't want to use tinker, manually add some records via the create form.
 
 With that you should be able to go to your /widget route and see the following:
 
-![](dt-index.png)
+![](vue-index.png)
 
 Please note that the header and footer pictured above are called in by the master page, so
 if you did not use our **[make:master](#makemaster)** command, you will see the output of your masterpage instead or an error if you have no master page.
@@ -462,6 +481,8 @@ php artisan make:foundation Widget master dt
 ```
 php artisan make:foundation Widget master vue
 ```
+
+You can also use the optional arguments of ‘slug’ and ‘index’.  Adding slug will create slugs for your show view.  Indicating index will tell ViewMaker that you only want to create the index view.
 
 make:foundation will create the following:
 
@@ -906,8 +927,7 @@ and controller, that will get you the following on your index page:
 ![](vue-index.png)
 
 Again note the header and footer are brought in by master page, which you create
-separately on your own.  Though not shown in the image, as of version 3.1.2. the vue template
-has pagination.
+separately on your own. 
 
 You also need a meta tag, which will create the tokens for your ajax calls,
 so put it in the appropriate place in your head section:
