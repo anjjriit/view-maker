@@ -38,7 +38,7 @@ With the **[make:foundation](#makefoundation)** command, create a code foundatio
 
 You also get the create, edit, and show views, instantly.  Here is what the create view looks like:
 
-![basic create view](basic-create.png)
+![](basic-create.png)
 
 Minimal bootstrap is used, so you can easily modify and extend as you wish.
 
