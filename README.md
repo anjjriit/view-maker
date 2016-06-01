@@ -18,7 +18,7 @@ Via Composer
 composer require evercode1/view-maker
 ```
 
-In your app/config/app.php file, add the following to the providers array:
+In your config/app.php file, add the following to the providers array:
 
 ```
 Evercode1\ViewMaker\ViewMakerServiceProvider::class,
