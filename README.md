@@ -4,7 +4,7 @@
 [![Software License][ico-license]](LICENSE.md)
 [![Total Downloads][ico-downloads]][link-downloads]
 
-**ViewMaker** is for use with the Laravel PHP framework (5.2 and up) Artisan command line tool.
+**ViewMaker** is for use with the Laravel PHP framework (5.2*) Artisan command line tool.
 
 ViewMaker adds 12 new artisan commands, providing ready-made templates for CRUD generation, Views and Datagrids, with ajax-powered search, column sorts and pagination, and chart.js charts.   You can create, migrate and test a foundation of code with crud and views in under a minute.
 

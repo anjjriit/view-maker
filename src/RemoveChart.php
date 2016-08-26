@@ -95,6 +95,7 @@ class RemoveChart extends Command
     {
         $model = camel_case($model);
         $model = str_singular($model);
+        
         return $model = ucwords($model);
 
     }
